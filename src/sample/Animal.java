@@ -2,20 +2,16 @@ package sample;
 
 import java.util.Date;
 
-public abstract class Animal {
+public class Animal {
 
   private String name;
-  private String species;
-  private double weight;
-  private int estimatedAge;
+  private int collarID;
+  private String subSpecies;
+  private String breed;
   private Date checkedIn;
-  private Date checkedOut;
-  private boolean isAvailable;
-  private boolean isFixed;
+  private Date adoptionDate;
   private Date lastCheckUp;
   private Date lastGroomed;
-
-
 
   public String getName() {
     return name;
@@ -25,29 +21,28 @@ public abstract class Animal {
     this.name = name;
   }
 
-  public String getSpecies() {
-    return species;
+  public int getCollarID() {
+    return collarID;
   }
 
-  public void setSpecies(String species) {
-    this.species = species;
+  public void setCollarID(int collarID) {
+    this.collarID = collarID;
   }
 
-  public double getWeight() {
-    return weight;
+  public String getSubSpecies() {
+    return subSpecies;
   }
 
-
-  public void setWeight(double weight) {
-    this.weight = weight;
+  public void setSubSpecies(String species) {
+    this.subSpecies = species;
   }
 
-  public int getEstimatedAge() {
-    return estimatedAge;
+  public String getBreed() {
+    return breed;
   }
 
-  public void setEstimatedAge(int estimatedAge) {
-    this.estimatedAge = estimatedAge;
+  public void setBreed(String breed) {
+    this.breed = breed;
   }
 
   public Date getCheckedIn() {
@@ -58,28 +53,12 @@ public abstract class Animal {
     this.checkedIn = checkedIn;
   }
 
-  public Date getCheckedOut() {
-    return checkedOut;
+  public Date getAdoptionDate() {
+    return adoptionDate;
   }
 
-  public void setCheckedOut(Date checkedOut) {
-    this.checkedOut = checkedOut;
-  }
-
-  public boolean isAvailable() {
-    return isAvailable;
-  }
-
-  public void setAvailable(boolean available) {
-    isAvailable = available;
-  }
-
-  public boolean isFixed() {
-    return isFixed;
-  }
-
-  public void setFixed(boolean fixed) {
-    isFixed = fixed;
+  public void setAdoptionDate(Date adoptionDate) {
+    this.adoptionDate = adoptionDate;
   }
 
   public Date getLastCheckUp() {
