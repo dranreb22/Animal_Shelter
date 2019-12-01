@@ -53,10 +53,12 @@ public class HomePageController {
 
   /**
    * This method will initialize the ComboBox on the HomePage with text about the animal shelters
-   * mission .. giving a better user home screen
+   * mission, giving a better user home screen.
    */
   public void initialize() {
-    listView_Animals.getItems().add("\t" + "EVERY PET DESERVES A FOREVER HOME");
+    listView_Animals.getItems().add("\n");
+    listView_Animals.getItems().add("\n");
+    listView_Animals.getItems().add("\n");
     listView_Animals.getItems().add("Our daily mission: ");
     listView_Animals.getItems().add("° Arrive bright eyed and bushy tailed");
     listView_Animals.getItems().add("° Insure every pet feels at home");
