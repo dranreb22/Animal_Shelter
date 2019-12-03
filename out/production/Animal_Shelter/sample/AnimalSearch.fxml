@@ -10,25 +10,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AnimalSearchController">
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AnimalSearchController">
   <children>
     <MenuButton alignment="CENTER" contentDisplay="RIGHT" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" text="Search Animal" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <font>
         <Font size="18.0" />
       </font>
       <items>
-        <MenuItem fx:id="menuItem_HomePage" mnemonicParsing="false" text="Home" />
+        <MenuItem fx:id="menuItem_HomePage" mnemonicParsing="false" onAction="#handleHomeMenuItem" text="Home" />
         <Menu mnemonicParsing="false" text="Adoptable">
           <items>
-            <MenuItem fx:id="homeItem_AdoptableDogs" mnemonicParsing="false" text="Adoptable Dogs" />
-            <MenuItem fx:id="menuItem_AdoptableCats" mnemonicParsing="false" text="Adoptable Cats" />
+            <MenuItem fx:id="homeItem_AdoptableDogs" mnemonicParsing="false" onAction="#handleAdoptableDogsMenuItem" text="Adoptable Dogs" />
+            <MenuItem fx:id="menuItem_AdoptableCats" mnemonicParsing="false" onAction="#handleAdoptableCatsMenuItem" text="Adoptable Cats" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Animal Info">
           <items>
-            <MenuItem fx:id="menuItem_EditAnimal" mnemonicParsing="false" text="Edit Animal Info" />
-            <MenuItem fx:id="menuItem_SearchAnimal" mnemonicParsing="false" text="Search Animal " />
-            <MenuItem fx:id="menuItem_AnimalStatus" mnemonicParsing="false" text="Animal Status" />
+            <MenuItem fx:id="menuItem_EditAnimal" mnemonicParsing="false" onAction="#handleAnimalInfoMenuItem" text="Edit Animal Info" />
+            <MenuItem fx:id="menuItem_SearchAnimal" mnemonicParsing="false" onAction="#handleAnimalSearchMenuItem" text="Search Animal " />
+            <MenuItem fx:id="menuItem_AnimalStatus" mnemonicParsing="false" onAction="#handleAnimalStatusMenuItem" text="Animal Status" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Animal Care">

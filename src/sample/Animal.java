@@ -2,16 +2,13 @@ package sample;
 
 import java.util.Date;
 
-public abstract class Animal {
+public class Animal {
 
   private String name;
   private String species;
-  private double weight;
-  private int estimatedAge;
+  private String breed;
+  private int collarID;
   private Date checkedIn;
-  private Date checkedOut;
-  private boolean isAvailable;
-  private boolean isFixed;
   private Date lastCheckUp;
   private Date lastGroomed;
 
@@ -23,28 +20,28 @@ public abstract class Animal {
     this.name = name;
   }
 
+  public int getCollarID() {
+    return collarID;
+  }
+
+  public void setCollarID(int collarID) {
+    this.collarID = collarID;
+  }
+
+  public String getBreed() {
+    return breed;
+  }
+
+  public void setBreed(String breed) {
+    this.breed = breed;
+  }
+
   public String getSpecies() {
     return species;
   }
 
   public void setSpecies(String species) {
     this.species = species;
-  }
-
-  public double getWeight() {
-    return weight;
-  }
-
-  public void setWeight(double weight) {
-    this.weight = weight;
-  }
-
-  public int getEstimatedAge() {
-    return estimatedAge;
-  }
-
-  public void setEstimatedAge(int estimatedAge) {
-    this.estimatedAge = estimatedAge;
   }
 
   public Date getCheckedIn() {
@@ -55,29 +52,6 @@ public abstract class Animal {
     this.checkedIn = checkedIn;
   }
 
-  public Date getCheckedOut() {
-    return checkedOut;
-  }
-
-  public void setCheckedOut(Date checkedOut) {
-    this.checkedOut = checkedOut;
-  }
-
-  public boolean isAvailable() {
-    return isAvailable;
-  }
-
-  public void setAvailable(boolean available) {
-    isAvailable = available;
-  }
-
-  public boolean isFixed() {
-    return isFixed;
-  }
-
-  public void setFixed(boolean fixed) {
-    isFixed = fixed;
-  }
 
   public Date getLastCheckUp() {
     return lastCheckUp;

@@ -4,14 +4,16 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="sample.AdoptableDogsController">
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AdoptableDogsController">
   <children>
-    <MenuButton alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" text="Adoptable Dogs" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <MenuButton fx:id="btn_adoptableDogs" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" text="Adoptable Dogs" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <font>
         <Font size="18.0" />
       </font>
@@ -33,14 +35,31 @@
         </Menu>
       </items>
     </MenuButton>
-    <TableView layoutX="75.0" layoutY="81.0" prefHeight="343.0" prefWidth="474.0">
-      <columns>
-        <TableColumn prefWidth="110.0" text="Name" />
-        <TableColumn prefWidth="122.0" text="Breed " />
-        <TableColumn prefWidth="125.0" text="Sub-Species" />
-        <TableColumn prefWidth="116.0" text="Collar ID" />
-      </columns>
-    </TableView>
-    <Button layoutX="493.0" layoutY="444.0" mnemonicParsing="false" text="Adopt" />
+      <ScrollPane layoutX="34.0" layoutY="39.0" prefHeight="362.0" prefWidth="508.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="367.0" prefWidth="816.0">
+               <children>
+                <TableView fx:id="tbv_adoptableDogs" prefHeight="343.0" prefWidth="1094.0">
+                  <columns>
+                        <TableColumn prefWidth="116.0" text="Collar ID">
+                    <cellValueFactory><PropertyValueFactory property="collarID" /></cellValueFactory></TableColumn>
+                    <TableColumn prefWidth="110.0" text="name" />
+                    <TableColumn prefWidth="125.0" text="Sub-Species">
+                      <cellValueFactory><PropertyValueFactory property="species" /></cellValueFactory></TableColumn>
+                    <TableColumn prefWidth="122.0" text="Breed ">
+                      <cellValueFactory><PropertyValueFactory property="breed" /></cellValueFactory></TableColumn>
+                    <TableColumn prefWidth="116.0" text="Date Checked In">
+                      <cellValueFactory><PropertyValueFactory property="checkedIn" /></cellValueFactory></TableColumn>
+                        <TableColumn  prefWidth="116.0" text="Grooming Date">
+                          <cellValueFactory><PropertyValueFactory property="lastGroomed" /></cellValueFactory></TableColumn>
+                        <TableColumn  prefWidth="116.0" text="Vet Date">
+                          <cellValueFactory><PropertyValueFactory property="lastCheckUp" /></cellValueFactory></TableColumn>
+                  </columns>
+                </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+    <Button fx:id="btn_adopt" layoutX="493.0" layoutY="444.0" mnemonicParsing="false" text="Adopt" />
   </children>
 </AnchorPane>

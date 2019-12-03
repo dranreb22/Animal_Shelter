@@ -4,53 +4,55 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<?import java.net.URL?>
-<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0"
-  xmlns:fx="http://javafx.com/fxml/1"
-  fx:controller="sample.AdoptableDogsController">
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AdoptableDogsController">
   <children>
-    <MenuButton alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false"
-      text="Adoptable Dogs" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="0.0"
-      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <MenuButton fx:id="tbv_adoptableDogs" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" text="Adoptable Dogs" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <font>
-        <Font size="18.0"/>
+        <Font size="18.0" />
       </font>
       <items>
-        <MenuItem fx:id="menuItem_HomePage" mnemonicParsing="false" onAction="#handleHomeMenuItem"
-          text="Home"/>
+        <MenuItem fx:id="menuItem_HomePage" mnemonicParsing="false" onAction="#handleHomeMenuItem" text="Home" />
         <Menu mnemonicParsing="false" text="Adoptable">
           <items>
-            <MenuItem fx:id="menuItem_AdoptableCats" mnemonicParsing="false"
-              onAction="#handleAdoptableCatsMenuItem" text="Adoptable Cats"/>
+            <MenuItem fx:id="menuItem_AdoptableCats" mnemonicParsing="false" onAction="#handleAdoptableCatsMenuItem" text="Adoptable Cats" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Animal Info">
           <items>
-            <MenuItem fx:id="menuItem_EditAnimal" mnemonicParsing="false" text="Edit Animal Info"/>
-            <MenuItem fx:id="menuItem_SearchAnimal" mnemonicParsing="false" text="Search Animal "/>
-            <MenuItem fx:id="menuItem_AnimalStatus" mnemonicParsing="false" text="Animal Status"/>
+            <MenuItem fx:id="menuItem_EditAnimal" mnemonicParsing="false" onAction="#handleAnimalInfoMenuItem" text="Edit Animal Info" />
+            <MenuItem fx:id="menuItem_SearchAnimal" mnemonicParsing="false" onAction="#handleAnimalSearchMenuItem" text="Search Animal " />
+            <MenuItem fx:id="menuItem_AnimalStatus" mnemonicParsing="false" onAction="#handleAnimalStatusMenuItem" text="Animal Status" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" onAction="#handleAnimalCareMenuItem" text="Animal Care">
         </Menu>
       </items>
     </MenuButton>
-    <TableView layoutX="75.0" layoutY="81.0" prefHeight="343.0" prefWidth="474.0">
-      <columns>
-        <TableColumn prefWidth="110.0" text="Name"/>
-        <TableColumn prefWidth="122.0" text="Breed "/>
-        <TableColumn prefWidth="125.0" text="Sub-Species"/>
-        <TableColumn prefWidth="116.0" text="Collar ID"/>
-      </columns>
-    </TableView>
-    <Button layoutX="493.0" layoutY="444.0" mnemonicParsing="false" text="Adopt"/>
+      <ScrollPane layoutX="34.0" layoutY="39.0" prefHeight="362.0" prefWidth="508.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="367.0" prefWidth="816.0">
+               <children>
+                <TableView fx:id="tbv_adoptobleDogs" prefHeight="343.0" prefWidth="1094.0">
+                  <columns>
+                        <TableColumn fx:id="tbc_ID1" prefWidth="116.0" text="Collar ID" />
+                    <TableColumn fx:id="tbc_name" prefWidth="110.0" text="Name" />
+                    <TableColumn fx:id="tbc_subSpecies" prefWidth="125.0" text="Sub-Species" />
+                    <TableColumn fx:id="tbc_breed" prefWidth="122.0" text="Breed " />
+                    <TableColumn fx:id="tbc_ID" prefWidth="116.0" text="Date Checked In" />
+                        <TableColumn fx:id="tbc_ID11" prefWidth="116.0" text="Grooming Date" />
+                        <TableColumn fx:id="tbc_ID111" prefWidth="116.0" text="Vet Date" />
+                  </columns>
+                </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+    <Button fx:id="btn_adopt" layoutX="493.0" layoutY="444.0" mnemonicParsing="false" text="Adopt" />
   </children>
-  <stylesheets>
-    <URL value="@Adoptable.css"/>
-  </stylesheets>
 </AnchorPane>
