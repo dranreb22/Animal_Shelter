@@ -1,0 +1,33 @@
+.root{
+  -fx-background-color: #FFFFFF;
+}
+
+.label{
+  -fx-text-fill: #0B2027;
+  -fx-font-size: 12pt;
+  -fx-font-family: "Times New Roman";
+}
+
+.split-pane{
+  -fx-border-color: #16303F;
+}
+
+.list-view{
+  -fx-font-family: "Times New Roman";
+  -fx-font-size: 10pt;
+  -fx-text-fill: #0B2027;
+  -fx-text-alignment: center;
+  -fx-fill: #16303F;
+}
+
+.menu .label{
+  -fx-text-fill: #00AFC1;
+
+}
+
+.menu .menu-item{
+  -fx-text-fill: #00AFC1;
+}
+
+
+
