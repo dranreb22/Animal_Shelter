@@ -1,55 +1,53 @@
-package sample;
+<?xml version="1.0" encoding="UTF-8"?>
 
-import java.io.IOException;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-public class AnimalSearchController {
-
-  @FXML
-  private AnchorPane rootPane;
-
-  @FXML
-  public void handleAdoptableDogsMenuItem(ActionEvent actionEvent) throws IOException {
-    AnchorPane pane = FXMLLoader.load(getClass().getResource("AdoptableDogs.fxml"));
-    rootPane.getChildren().setAll(pane);
-  }
-
-  @FXML
-  public void handleHomeMenuItem(ActionEvent actionEvent) throws IOException {
-    AnchorPane pane = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
-    rootPane.getChildren().setAll(pane);
-  }
-  @FXML
-  public void handleAdoptableCatsMenuItem(ActionEvent actionEvent) throws IOException {
-    AnchorPane pane = FXMLLoader.load(getClass().getResource("AdoptableCats.fxml"));
-    rootPane.getChildren().setAll(pane);
-  }
-
-  @FXML
-  public void handleAnimalInfoMenuItem(ActionEvent actionEvent) throws IOException {
-    AnchorPane pane = FXMLLoader.load(getClass().getResource("AnimalInformation.fxml"));
-    rootPane.getChildren().setAll(pane);
-  }
-
-  @FXML
-  public void handleAnimalCareMenuItem(ActionEvent actionEvent) throws IOException {
-    AnchorPane pane = FXMLLoader.load(getClass().getResource("AnimalCare.fxml"));
-    rootPane.getChildren().setAll(pane);
-    System.out.println("You would like to adopt a dog!!");
-  }
-
-  @FXML
-  public void handleAnimalSearchMenuItem(ActionEvent actionEvent) throws IOException {
-    AnchorPane pane = FXMLLoader.load(getClass().getResource("AnimalSearch.fxml"));
-    rootPane.getChildren().setAll(pane);
-  }
-  @FXML
-  public void handleAnimalStatusMenuItem(ActionEvent actionEvent) throws IOException {
-    AnchorPane pane = FXMLLoader.load(getClass().getResource("AnimalStatus.fxml"));
-    rootPane.getChildren().setAll(pane);
-  }
-
-}
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AnimalSearchController">
+  <children>
+    <MenuButton alignment="CENTER" contentDisplay="RIGHT" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" text="Search Animal" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <font>
+        <Font size="18.0" />
+      </font>
+      <items>
+        <MenuItem fx:id="menuItem_HomePage" mnemonicParsing="false" onAction="#handleHomeMenuItem" text="Home" />
+        <Menu mnemonicParsing="false" text="Adoptable">
+          <items>
+            <MenuItem fx:id="homeItem_AdoptableDogs" mnemonicParsing="false" onAction="#handleAdoptableDogsMenuItem" text="Adoptable Dogs" />
+            <MenuItem fx:id="menuItem_AdoptableCats" mnemonicParsing="false" onAction="#handleAdoptableCatsMenuItem" text="Adoptable Cats" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Animal Info">
+          <items>
+            <MenuItem fx:id="menuItem_EditAnimal" mnemonicParsing="false" onAction="#handleAnimalInfoMenuItem" text="Edit Animal Info" />
+            <MenuItem fx:id="menuItem_SearchAnimal" mnemonicParsing="false" onAction="#handleAnimalSearchMenuItem" text="Search Animal " />
+            <MenuItem fx:id="menuItem_AnimalStatus" mnemonicParsing="false" onAction="#handleAnimalStatusMenuItem" text="Animal Status" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Animal Care">
+          <items>
+            <MenuItem fx:id="menuItem_Groomers" mnemonicParsing="false" text="Groomers" />
+            <MenuItem fx:id="menuItem_VetVisit" mnemonicParsing="false" text="Vet Visit" />
+          </items>
+        </Menu>
+      </items>
+    </MenuButton>
+    <TextField fx:id="textField_AnimalName" layoutX="52.0" layoutY="76.0" prefHeight="35.0" prefWidth="289.0" />
+    <Button fx:id="button_AnimalSearch" layoutX="415.0" layoutY="76.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="83.0" text="Search" />
+    <TableView fx:id="tableView_AvailabelAnimals" layoutX="28.0" layoutY="140.0" prefHeight="223.0" prefWidth="545.0">
+      <columns>
+        <TableColumn prefWidth="106.0" text="Name" />
+        <TableColumn prefWidth="165.0" text="Breed" />
+        <TableColumn prefWidth="139.0" text="Sub-Species" />
+        <TableColumn prefWidth="134.0" text="Collar ID" />
+      </columns>
+    </TableView>
+  </children>
+</AnchorPane>
