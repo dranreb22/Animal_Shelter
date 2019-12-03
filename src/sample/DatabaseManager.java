@@ -40,10 +40,7 @@ public class DatabaseManager {
       //STEP 2: Open a connection
       conn = DriverManager.getConnection(db_Url, user, pass);
 
-    } catch (ClassNotFoundException e) {
-      e.printStackTrace();
-
-    } catch (SQLException e) {
+    } catch (SQLException | ClassNotFoundException e) {
       e.printStackTrace();
     }
 
@@ -84,15 +81,15 @@ public class DatabaseManager {
 
   //should be working
   public void updateAnimalInDB(String name, String species, String subSpecies, Date checkInDate,
-      Date adoptionDate, Date cleanUpDate, Date vetCheckDate) {
+      Date cleanUpDate, Date vetCheckDate) {
     animalInformationStr = new String[]{species, subSpecies};
 
-    animalInformationDate = new Date[]{checkInDate, adoptionDate, cleanUpDate, vetCheckDate};
+    animalInformationDate = new Date[]{checkInDate, cleanUpDate, vetCheckDate};
 
     try {
       //Execute a query
       animalQuery =
-          "UPDATE ANIMAL SET SUBSPECIES = ?, BREED = ?, CHECKINDATE = ?, ADOPTIONDATE = ?,"
+          "UPDATE ANIMAL SET SUBSPECIES = ?, BREED = ?, CHECKINDATE = ?,"
               + " GROOMDATE = ?, VETCHECKDATE = ? where NAME = ?";
       preparedStatement = conn.prepareStatement(animalQuery);
       for (String s : animalInformationStr) {
@@ -136,23 +133,25 @@ public class DatabaseManager {
     }
   }*/
 
-/* public ArrayList<Animal> getAvailableAnimals(){
-   List<Animal> productLine = new ArrayList<>();
+ public ArrayList<Animal> getAvailableAnimals(){
+   ArrayList<Animal> animalsInDB = new ArrayList<>();
    try {
-     animalQuery = "SELECT * FROM ANIMAL WHERE ADOPTIONDATE IS NOT NULL";
+     animalQuery = "SELECT * FROM ANIMAL";
      preparedStatement = conn.prepareStatement(animalQuery);
      result = preparedStatement.executeQuery();
      while (result.next()) {
-       Integer ID = result.getInt("COLLARID");
+       int ID = result.getInt("COLLARID");
        String name = result.getString("NAME");
-       String manufacturer = result.getString("SUBSPECIES");
-       String type = result.getString("BREED");
-       productLine.add(new Widget(ID, name, manufacturer, ItemType.valueOf(type)));
+       String subspecies = result.getString("SUBSPECIES");
+       String breed = result.getString("BREED");
+       Date checkInDate = result.getDate("CHECKINDATE");
+       Date groomDate = result.getDate("GROOMDATE");
+       Date vetCheckDate = result.getDate("VETCHECKDATE");
+       animalsInDB.add(new Animal(ID, name, subspecies, breed, checkInDate, groomDate, vetCheckDate));
      }
    } catch (SQLException ex) {
      ex.printStackTrace();
    }
-   return productLine;
- }*/
-
+   return animalsInDB;
+ }
 }
