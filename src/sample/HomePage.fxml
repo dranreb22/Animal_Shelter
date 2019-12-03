@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.HomePageController">
+  <children>
+    <SplitPane dividerPositions="0.3611859838274933" layoutX="116.0" layoutY="51.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+      <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="127.0" prefWidth="596.0">
+          <children>
+            <ImageView fitHeight="127.0" fitWidth="596.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="13.190666198730469" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+              <image>
+                <Image url="@../Images/Adopt_Banner.jpg" />
+              </image>
+            </ImageView>
+          </children>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="273.0" prefWidth="596.0">
+          <children>
+            <ListView fx:id="listView_Animals" layoutY="19.0" prefHeight="273.0" prefWidth="596.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="19.0" />
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+    <MenuButton alignment="CENTER" contentDisplay="RIGHT" layoutY="-5.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="600.0" text="Home">
+      <font>
+        <Font size="18.0" />
+      </font>
+      <items>
+        <Menu mnemonicParsing="false" text="Adoptable">
+          <items>
+            <MenuItem fx:id="menuItem_AdoptableDogs" mnemonicParsing="false" onAction="#handleAdoptableDogsMenuItem" text="Adoptable Dogs" />
+            <MenuItem fx:id="menuItem_AdoptableCats" mnemonicParsing="false" onAction="#handleAdoptableCatsMenuItem" text="Adoptable Cats" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Animal Info">
+          <items>
+            <MenuItem fx:id="menuItem_EditAnimal" mnemonicParsing="false" onAction="#handleAnimalInfoMenuItem" text="Edit Animal Info" />
+            <MenuItem fx:id="menuItem_SearchAnimal" mnemonicParsing="false" onAction="#handleAnimalSearchMenuItem" text="Search Animal " />
+            <MenuItem fx:id="menuItem_AnimalStatus" mnemonicParsing="false" text="Animal Status" />
+          </items>
+        </Menu>
+        <MenuItem mnemonicParsing="false" onAction="#handleAnimalCareMenuItem" text="Animal Care" />
+      </items>
+    </MenuButton>
+  </children>
+  <stylesheets>
+    <URL value="@Style.css" />
+  </stylesheets>
+</AnchorPane>
