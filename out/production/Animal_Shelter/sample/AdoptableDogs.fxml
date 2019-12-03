@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import java.net.URL?>
 <AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0"
   xmlns:fx="http://javafx.com/fxml/1"
   fx:controller="sample.AdoptableDogsController">
@@ -49,4 +50,7 @@
     </TableView>
     <Button layoutX="493.0" layoutY="444.0" mnemonicParsing="false" text="Adopt"/>
   </children>
+  <stylesheets>
+    <URL value="@Adoptable.css"/>
+  </stylesheets>
 </AnchorPane>
