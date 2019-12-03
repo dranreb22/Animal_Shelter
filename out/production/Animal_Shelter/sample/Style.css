@@ -1,16 +1,11 @@
 .root{
-  -fx-background-color: #6B717E;
+  -fx-background-color: #FFFFFF;
 }
 
 .label{
   -fx-text-fill: #0B2027;
   -fx-font-size: 12pt;
   -fx-font-family: "Times New Roman";
-}
-
-.menu-bar{
-  -fx-background-color: #EFEFEF;
-  -fx-border-color: #16303F;
 }
 
 .split-pane{
@@ -25,6 +20,14 @@
   -fx-fill: #16303F;
 }
 
-.
+.menu .label{
+  -fx-text-fill: #00AFC1;
+
+}
+
+.menu .menu-item{
+  -fx-text-fill: #00AFC1;
+}
+
 
 

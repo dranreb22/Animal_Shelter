@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseManager {
 
@@ -91,7 +93,7 @@ public class DatabaseManager {
       //Execute a query
       animalQuery =
           "UPDATE ANIMAL SET SUBSPECIES = ?, BREED = ?, CHECKINDATE = ?, ADOPTIONDATE = ?,"
-              + " CLEANUPDATE = ?, VETCHECKDATE = ? where NAME = ?";
+              + " GROOMDATE = ?, VETCHECKDATE = ? where NAME = ?";
       preparedStatement = conn.prepareStatement(animalQuery);
       for (String s : animalInformationStr) {
         preparedStatement.setString(index, s);
@@ -114,7 +116,7 @@ public class DatabaseManager {
 
   }
 
-  public void adoptAnimal(String name, String adoptionDate) {
+ /* public void adoptAnimal(String name, String adoptionDate) {
     animalInformationStr = new String[]{name, adoptionDate};
     try {
 
@@ -132,5 +134,25 @@ public class DatabaseManager {
     } catch (SQLException ex) {
       ex.printStackTrace();
     }
-  }
+  }*/
+
+/* public ArrayList<Animal> getAvailableAnimals(){
+   List<Animal> productLine = new ArrayList<>();
+   try {
+     animalQuery = "SELECT * FROM ANIMAL WHERE ADOPTIONDATE IS NOT NULL";
+     preparedStatement = conn.prepareStatement(animalQuery);
+     result = preparedStatement.executeQuery();
+     while (result.next()) {
+       Integer ID = result.getInt("COLLARID");
+       String name = result.getString("NAME");
+       String manufacturer = result.getString("SUBSPECIES");
+       String type = result.getString("BREED");
+       productLine.add(new Widget(ID, name, manufacturer, ItemType.valueOf(type)));
+     }
+   } catch (SQLException ex) {
+     ex.printStackTrace();
+   }
+   return productLine; 
+ }*/
+
 }
