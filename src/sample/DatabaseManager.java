@@ -152,7 +152,7 @@ public class DatabaseManager {
    } catch (SQLException ex) {
      ex.printStackTrace();
    }
-   return productLine; 
+   return productLine;
  }*/
 
 }
