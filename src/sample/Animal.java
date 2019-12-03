@@ -15,8 +15,6 @@ public abstract class Animal {
   private Date lastCheckUp;
   private Date lastGroomed;
 
-
-
   public String getName() {
     return name;
   }
@@ -36,7 +34,6 @@ public abstract class Animal {
   public double getWeight() {
     return weight;
   }
-
 
   public void setWeight(double weight) {
     this.weight = weight;
