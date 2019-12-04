@@ -1,9 +1,10 @@
 package sample;
 
 
+import java.sql.Timestamp;
 import javafx.scene.control.TextField;
 import java.io.IOException;
-import java.sql.Date;
+import java.util.Date;
 import java.time.ZoneId;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,10 +14,10 @@ import javafx.scene.layout.AnchorPane;
 
 public class AnimalInformationController {
 
-  private Date checkInDate;
-  private Date checkOutDate;
-  private Date groomDate;
-  private Date vetDate;
+  private Timestamp checkInDate;
+  private Timestamp checkOutDate;
+  private Timestamp groomDate;
+  private Timestamp vetDate;
   private DatabaseManager db = new DatabaseManager();
   private java.util.Date date;
 
@@ -37,24 +38,20 @@ public class AnimalInformationController {
 
   @FXML
   public void handleUpdateBtn(ActionEvent actionEvent) {
-    db.initializeDb();
     String name = textField_Name.getText();
     //String species = textField_Species.getText()
     //String subSpecies = textField_Species.getText()
 
     date = convertToDatePicker(datePicker_CheckedIn);
-    checkInDate = new Date(date.getTime());
-
-    date = convertToDatePicker(datePicker_CheckedOut);
-    checkOutDate = new Date(date.getTime());
+    checkInDate = new Timestamp(date.getTime());
 
     date = convertToDatePicker(datePicker_Groomers);
-    groomDate = new Date(date.getTime());
+    groomDate = new Timestamp(date.getTime());
 
     date = convertToDatePicker(datePicker_VetVisit);
-    vetDate = new Date(date.getTime());
+    vetDate = new Timestamp(date.getTime());
 
-    db.updateAnimalInDB(name, null, null, checkInDate, checkOutDate, groomDate, vetDate);
+    db.updateAnimalInDB(name, null, null, checkInDate, groomDate, vetDate);
 
     textField_Name.clear();
     datePicker_CheckedIn.getEditor().clear();
