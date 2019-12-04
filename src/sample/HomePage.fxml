@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuButton?>
@@ -13,11 +14,11 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.HomePageController">
   <children>
-    <SplitPane dividerPositions="0.3611859838274933" layoutX="116.0" layoutY="51.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+    <SplitPane dividerPositions="0.33153638814016173" layoutX="116.0" layoutY="51.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
       <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="127.0" prefWidth="596.0">
           <children>
-            <ImageView fitHeight="127.0" fitWidth="596.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="13.190666198730469" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+            <ImageView fitHeight="122.0" fitWidth="608.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="0.0">
               <image>
                 <Image url="@../Images/Adopt_Banner.jpg" />
               </image>
@@ -26,7 +27,34 @@
         </AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="273.0" prefWidth="596.0">
           <children>
-            <ListView fx:id="listView_Animals" layoutY="19.0" prefHeight="273.0" prefWidth="596.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="19.0" />
+                  <SplitPane dividerPositions="0.5" layoutX="210.0" layoutY="19.0" prefHeight="244.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <Label layoutX="90.0" layoutY="14.0" prefHeight="16.0" prefWidth="114.0" text="Adopt Dont Shop">
+                                 <font>
+                                    <Font name="System Font" size="12.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="134.0" fitWidth="144.0" layoutX="14.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                                 <image>
+                                    <Image url="@../Images/dogHome1.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="134.0" fitWidth="144.0" layoutX="24.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                 <image>
+                                    <Image url="@../Images/catdoghome1.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <ListView fx:id="listView_Animals" layoutY="-9.0" prefHeight="251.0" prefWidth="302.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
           </children>
         </AnchorPane>
       </items>

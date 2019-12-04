@@ -2,14 +2,14 @@
 Background color of the root
  */
 .root {
-  -fx-background-color: #FFFFFF;
+  -fx-background-color: #5472AE;
 }
 
 /*
 Label Customization
  */
 .label {
-  -fx-text-fill: #F1FAEE;
+  -fx-text-fill: white;
   -fx-font-size: 12pt;
   -fx-font-family: "Times New Roman";
 }
@@ -21,52 +21,52 @@ Customization for the list view text, and rows color
 .list-view {
   -fx-font-family: "Times New Roman";
   -fx-font-size: 10pt;
-  -fx-text-fill: #1D3557;
+  -fx-text-fill: white;
   -fx-text-alignment: center;
-  -fx-fill: #16303F;
+  -fx-fill: white;
 }
 
 .list-view . list-cell:even {
-  -fx-text-fill: #F1FAEE;
-  -fx-background-color: #1D3557;
+  -fx-text-fill: white;
+  -fx-background-color: #5472AE;
 }
 
 .list-view .list-cell:odd {
-  -fx-text-fill: #F1FAEE;
-  -fx-background-color: #1D3557;
+  -fx-text-fill: white;
+  -fx-background-color: #5472AE;
 }
 
 /*
 Customization for the menu color / background for the menu button
  */
 .menu . label {
-  -fx-text-fill: #1D3557;
+  -fx-text-fill: #2B303A;
 
 }
 
 .menu .menu-item {
-  -fx-text-fill: #1D3557;
+  -fx-text-fill: #2B303A;
 }
 
 
 .menu-button {
-  -fx-background-color: #1D3557;
+  -fx-background-color: #192833;
 }
 
 .menu-button . label {
-  -fx-text-fill: #F1FAEE;
+  -fx-text-fill: white;
 }
 
 .menu-button . menu-item . label {
-  -fx-text-fill: #E63946;
+  -fx-text-fill: #192833;
 }
 
 .menu . menu-button . menu-item {
-  -fx-text-fill: #E63946;
+  -fx-text-fill: #192833;
 }
 
 .split-pane {
-  -fx-background-color: #1D3557;
+  -fx-background-color: #5472AE;
 
 }
 
