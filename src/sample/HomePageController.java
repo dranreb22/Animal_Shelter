@@ -9,6 +9,8 @@ import javafx.scene.layout.AnchorPane;
 
 public class HomePageController {
 
+  private DatabaseManager db = new DatabaseManager();
+
   public javafx.scene.control.MenuItem menuItem_AdoptableDogs;
 
   @FXML private AnchorPane rootPane;
@@ -63,6 +65,7 @@ public class HomePageController {
    * This method will initialize the ComboBox on the HomePage with text about the animal shelters
    * mission .. giving a better user home screen
    */
+  @FXML
   public void initialize() {
     listView_Animals.getItems().add("\t" + "EVERY PET DESERVES A FOREVER HOME");
     listView_Animals.getItems().add("Our daily mission: ");

@@ -1,27 +1,34 @@
 package sample;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 
-public class AdoptableDogsController {
+public class AdoptableDogsController implements Initializable {
 
-  @FXML private TableView tbv_adoptableDogs;
-  @FXML private AnchorPane rootPane;
+  @FXML
+  private TableView<Animal> tbv_adoptableDogs;
+  @FXML
+  private AnchorPane rootPane;
   private DatabaseManager db = new DatabaseManager();
 
   private ObservableList<Animal> animalList;
 
-
-  @FXML
-  public void initialize() {
-    animalList = FXCollections.observableArrayList(db.GetAvailableAnimals());
+  @Override
+  public void initialize(URL location, ResourceBundle resources) {
+    db.initializeDb();
+    animalList = FXCollections.observableArrayList(db.getAvailableAnimals());
+    tbv_adoptableDogs.setItems(animalList);
+    db.closeDB();
   }
 
   @FXML

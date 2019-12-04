@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,16 +21,16 @@ public class DatabaseManager {
   private String delQuery;
   private int index = 1;
   private String[] animalInformationStr;
-  private Date[] animalInformationDate;
+  private Timestamp[] animalInformationDate;
 
 
 
-  public void initializeDb() {
+  void initializeDb() {
     try {
       final String jdbcDriver = "org.h2.Driver";
       Class.forName(jdbcDriver);
       final String db_Url = "jdbc:h2:./res/AnimalInformation";
-      //  Database credentials
+      // Database credentials
       // to create a database username and password,
       // type Create USER [username] WITH PASSWORD "[password]"
       // to allow the user to edit the database use GRANT ALTER ANY SCHEMA TO [username]; in console
@@ -36,15 +38,12 @@ public class DatabaseManager {
       final String pass = "";
 
       // STEP 1: Register JDBC driver
-
       //STEP 2: Open a connection
       conn = DriverManager.getConnection(db_Url, user, pass);
 
     } catch (SQLException | ClassNotFoundException e) {
       e.printStackTrace();
     }
-
-    //return conn;
   }
 
   public void closeDB(){
@@ -73,32 +72,39 @@ public class DatabaseManager {
         index++;
       }
       preparedStatement.executeUpdate();
-      preparedStatement.close();
     } catch (SQLException ex) {
       ex.printStackTrace();
     }
   }
 
-  //should be working
-  public void updateAnimalInDB(String name, String species, String subSpecies, Date checkInDate,
-      Date cleanUpDate, Date vetCheckDate) {
-    animalInformationStr = new String[]{species, subSpecies};
+  /**
+   *
+   * @param name
+   * @param subSpecies
+   * @param breed
+   * @param checkInDate
+   * @param groomDate
+   * @param vetCheckDate
+   */
+  void updateAnimalInDB(String name,  String subSpecies, String breed, Timestamp checkInDate,
+      Timestamp groomDate, Timestamp vetCheckDate) {
+    animalInformationStr = new String[]{breed, subSpecies};
 
-    animalInformationDate = new Date[]{checkInDate, cleanUpDate, vetCheckDate};
+    animalInformationDate = new Timestamp[]{checkInDate, groomDate, vetCheckDate};
 
     try {
       //Execute a query
       animalQuery =
-          "UPDATE ANIMAL SET SUBSPECIES = ?, BREED = ?, CHECKINDATE = ?,"
-              + " GROOMDATE = ?, VETCHECKDATE = ? where NAME = ?";
+          "UPDATE ANIMAL SET SUBSPECIES = ?, BREED = ?,"
+              + " CHECKINDATE=?, GROOMDATE = ?, VETCHECKDATE = ? where NAME = ?";
       preparedStatement = conn.prepareStatement(animalQuery);
       for (String s : animalInformationStr) {
         preparedStatement.setString(index, s);
         index++;
       }
 
-      for (Date d : animalInformationDate) {
-        preparedStatement.setDate(index, d);
+      for (Timestamp ts : animalInformationDate) {
+        preparedStatement.setTimestamp(index, ts);
         index++;
       }
 
@@ -133,8 +139,8 @@ public class DatabaseManager {
     }
   }*/
 
- public ArrayList<Animal> getAvailableAnimals(){
-   ArrayList<Animal> animalsInDB = new ArrayList<>();
+ public List<Animal> getAvailableAnimals(){
+   List<Animal> animalsInDB = new ArrayList<>();
    try {
      animalQuery = "SELECT * FROM ANIMAL";
      preparedStatement = conn.prepareStatement(animalQuery);
@@ -144,9 +150,9 @@ public class DatabaseManager {
        String name = result.getString("NAME");
        String subspecies = result.getString("SUBSPECIES");
        String breed = result.getString("BREED");
-       Date checkInDate = result.getDate("CHECKINDATE");
-       Date groomDate = result.getDate("GROOMDATE");
-       Date vetCheckDate = result.getDate("VETCHECKDATE");
+       Timestamp checkInDate = result.getTimestamp("CHECKINDATE");
+       Timestamp groomDate = result.getTimestamp("GROOMDATE");
+       Timestamp vetCheckDate = result.getTimestamp("VETCHECKDATE");
        animalsInDB.add(new Animal(ID, name, subspecies, breed, checkInDate, groomDate, vetCheckDate));
      }
    } catch (SQLException ex) {

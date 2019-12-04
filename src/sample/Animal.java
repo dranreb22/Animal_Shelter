@@ -1,6 +1,7 @@
 package sample;
 
 import java.util.Date;
+import java.sql.Timestamp;
 
 public class Animal {
 
@@ -8,9 +9,20 @@ public class Animal {
   private String species;
   private String breed;
   private int collarID;
-  private Date checkedIn;
-  private Date lastCheckUp;
-  private Date lastGroomed;
+  private Timestamp checkedIn;
+  private Timestamp lastCheckUp;
+  private Timestamp lastGroomed;
+
+  Animal(int collarID, String name, String species, String breed, Timestamp checkedIn,
+      Timestamp lastCheckUp, Timestamp lastGroomed){
+    this.collarID = collarID;
+    this.name = name;
+    this.species = species;
+    this.breed = breed;
+    this.checkedIn = checkedIn;
+    this.lastCheckUp = lastCheckUp;
+    this.lastGroomed = lastGroomed;
+  }
 
   public String getName() {
     return name;
@@ -48,7 +60,7 @@ public class Animal {
     return checkedIn;
   }
 
-  public void setCheckedIn(Date checkedIn) {
+  public void setCheckedIn(Timestamp checkedIn) {
     this.checkedIn = checkedIn;
   }
 
@@ -57,7 +69,7 @@ public class Animal {
     return lastCheckUp;
   }
 
-  public void setLastCheckUp(Date lastCheckUp) {
+  public void setLastCheckUp(Timestamp lastCheckUp) {
     this.lastCheckUp = lastCheckUp;
   }
 
@@ -65,7 +77,12 @@ public class Animal {
     return lastGroomed;
   }
 
-  public void setLastGroomed(Date lastGroomed) {
+  public void setLastGroomed(Timestamp lastGroomed) {
     this.lastGroomed = lastGroomed;
+  }
+
+  @Override
+  public String toString(){
+    return name + " " + species + " " + breed;
   }
 }
