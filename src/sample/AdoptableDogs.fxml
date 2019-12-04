@@ -41,19 +41,27 @@
                <children>
                 <TableView fx:id="tbv_adoptableDogs" prefHeight="343.0" prefWidth="1094.0">
                   <columns>
-                        <TableColumn prefWidth="116.0" text="Collar ID">
-                    <cellValueFactory><PropertyValueFactory property="collarID" /></cellValueFactory></TableColumn>
-                    <TableColumn prefWidth="110.0" text="name" />
-                    <TableColumn prefWidth="125.0" text="Sub-Species">
-                      <cellValueFactory><PropertyValueFactory property="species" /></cellValueFactory></TableColumn>
-                    <TableColumn prefWidth="122.0" text="Breed ">
-                      <cellValueFactory><PropertyValueFactory property="breed" /></cellValueFactory></TableColumn>
-                    <TableColumn prefWidth="116.0" text="Date Checked In">
-                      <cellValueFactory><PropertyValueFactory property="checkedIn" /></cellValueFactory></TableColumn>
-                        <TableColumn  prefWidth="116.0" text="Grooming Date">
-                          <cellValueFactory><PropertyValueFactory property="lastGroomed" /></cellValueFactory></TableColumn>
-                        <TableColumn  prefWidth="116.0" text="Vet Date">
-                          <cellValueFactory><PropertyValueFactory property="lastCheckUp" /></cellValueFactory></TableColumn>
+                    <TableColumn prefWidth="98.99996948242188" text="Name">
+                      <cellValueFactory><PropertyValueFactory property="name" /></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="126.0" text="Subspecies">
+                      <cellValueFactory><PropertyValueFactory property="species" /></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="128.0" text="Breed">
+                      <cellValueFactory><PropertyValueFactory property="breed" /></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="128.0" text="Collar ID">
+                      <cellValueFactory><PropertyValueFactory property="collarID" /></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="128.0" text="Check In Date">
+                      <cellValueFactory><PropertyValueFactory property="checkedIn" /></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="128.0" text="Last Checkup">
+                      <cellValueFactory><PropertyValueFactory property="lastCheckUp" /></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="128.0" text="Last Groom">
+                      <cellValueFactory><PropertyValueFactory property="lastGroomed" /></cellValueFactory>
+                    </TableColumn>
                   </columns>
                 </TableView>
                </children>
