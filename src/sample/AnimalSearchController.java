@@ -13,7 +13,7 @@ public class AnimalSearchController {
 
   @FXML
   public void handleAdoptableDogsMenuItem(ActionEvent actionEvent) throws IOException {
-    AnchorPane pane = FXMLLoader.load(getClass().getResource("AdoptableDogs.fxml"));
+    AnchorPane pane = FXMLLoader.load(getClass().getResource("Adoptable.fxml"));
     rootPane.getChildren().setAll(pane);
   }
 
@@ -23,8 +23,8 @@ public class AnimalSearchController {
     rootPane.getChildren().setAll(pane);
   }
   @FXML
-  public void handleAdoptableCatsMenuItem(ActionEvent actionEvent) throws IOException {
-    AnchorPane pane = FXMLLoader.load(getClass().getResource("AdoptableCats.fxml"));
+  public void handleAddAnimalMenuItem(ActionEvent actionEvent) throws IOException {
+    AnchorPane pane = FXMLLoader.load(getClass().getResource("AddAnimal.fxml"));
     rootPane.getChildren().setAll(pane);
   }
 

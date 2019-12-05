@@ -5099,7 +5099,7 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:247)
 	at sample.DatabaseManager.initializeDb(DatabaseManager.java:43)
-	at sample.AdoptableDogsController.initializeList(AdoptableDogsController.java:23)
+	at sample.AdoptableController.initializeList(AdoptableDogsController.java:23)
 	at sample.HomePageController.initialize(HomePageController.java:76)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)

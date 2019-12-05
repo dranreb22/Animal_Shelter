@@ -24,7 +24,7 @@ public class AnimalCareController {
   public void handleAdoptableDogsMenuItem(javafx.event.ActionEvent actionEvent) throws IOException {
     //This is a test to see if there is functionality to the menuitem
     System.out.println("You would like to adopt a dog!!");
-    AnchorPane pane = FXMLLoader.load(getClass().getResource("AdoptableDogs.fxml"));
+    AnchorPane pane = FXMLLoader.load(getClass().getResource("Adoptable.fxml"));
     rootPane.getChildren().setAll(pane);
   }
   @FXML
