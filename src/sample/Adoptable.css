@@ -1,8 +1,8 @@
 .table-view {
-  -fx-background-color: #A8DADC;
+    -fx-background-color: #A8DADC;
 }
 
 .button {
-  -fx-background-color: #1D3557;
-  -fx-text-fill: #F1FAEE;
+    -fx-background-color: #1D3557;
+    -fx-text-fill: #F1FAEE;
 }

@@ -22,8 +22,9 @@
       </font>
       <items>
         <MenuItem fx:id="menuItem_HomePage" mnemonicParsing="false" onAction="#handleHomeMenuItem" text="Home" />
-      <MenuItem fx:id="menuItem_AddAnimal" mnemonicParsing="false" onAction="#handleAddAnimalMenuItem" text="Add Animal" />
       <MenuItem fx:id="menuItem_SearchAnimal" mnemonicParsing="false" onAction="#handleAnimalSearchMenuItem" text="Search Animal " />
+      <MenuItem fx:id="menuItem_AddAnimal" mnemonicParsing="false" text="Add Animal" />
+            <MenuItem fx:id="menuItem_SearchAnimal1" mnemonicParsing="false" onAction="#handleAnimalInfoMenuItem" text="Edit Animal Info" />
       <MenuItem fx:id="menuItem_AdoptableDogs" mnemonicParsing="false" onAction="#handleAdoptableMenuItem" text="Adoptable" />
             <MenuItem fx:id="menuItem_AnimalCare" mnemonicParsing="false" onAction="#handleAnimalCareMenuItem" text="Animal Care" />
       </items>
