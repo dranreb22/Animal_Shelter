@@ -46,6 +46,6 @@
                 <TextField fx:id="textField_SubSpecies" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             </children>
         </GridPane>
-        <Button layoutX="457.0" layoutY="314.0" mnemonicParsing="false" text="Add" />
+        <Button layoutX="457.0" layoutY="314.0" mnemonicParsing="false" onAction="#getNewAnimalInfo" text="Add" />
     </children>
 </AnchorPane>

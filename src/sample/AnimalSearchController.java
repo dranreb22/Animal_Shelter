@@ -5,12 +5,15 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class AnimalSearchController {
 
     @FXML
     private AnchorPane rootPane;
+    @FXML
+    private TextField textField_AnimalName;
 
     @FXML
     public void handleAdoptableDogsMenuItem(ActionEvent actionEvent) throws IOException {
@@ -53,6 +56,10 @@ public class AnimalSearchController {
     public void handleAnimalStatusMenuItem(ActionEvent actionEvent) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("AnimalStatus.fxml"));
         rootPane.getChildren().setAll(pane);
+    }
+    @FXML
+    public String getSearchQuery(){
+        return(textField_AnimalName.getText());
     }
 
 }

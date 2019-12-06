@@ -1,15 +1,24 @@
 package sample;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class AddAnimalController {
     @FXML
     private AnchorPane rootPane;
+    @FXML
+    private TextField textField_Name;
+    @FXML
+    private TextField textField_Species;
+    @FXML
+    private TextField textField_SubSpecies;
 
     @FXML
     public void handleHomeMenuItem(ActionEvent actionEvent) throws IOException {
@@ -42,5 +51,10 @@ public class AddAnimalController {
         rootPane.getChildren().setAll(pane);
     }
 
+    @FXML
+    public String[] getNewAnimalInfo() {
+        String[] separateInfo={textField_Name.getText().trim(),textField_Species.getText().trim(), textField_SubSpecies.getText().trim()};
+        return separateInfo;
+    }
 
 }
