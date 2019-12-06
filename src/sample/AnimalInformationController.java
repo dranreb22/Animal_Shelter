@@ -73,7 +73,7 @@ public class AnimalInformationController {
   }
 
   @FXML
-  public void handleAdoptableDogsMenuItem(javafx.event.ActionEvent actionEvent) throws IOException {
+  public void handleAdoptableMenuItem(javafx.event.ActionEvent actionEvent) throws IOException {
     //This is a test to see if there is functionality to the menuitem
     //System.out.println("You would like to adopt a dog!!");
     AnchorPane pane = FXMLLoader.load(getClass().getResource("Adoptable.fxml"));
@@ -93,30 +93,8 @@ public class AnimalInformationController {
   }
 
   @FXML
-  public void handleAdoptableCatsMenuItem(ActionEvent actionEvent) throws IOException {
-    AnchorPane pane = FXMLLoader.load(getClass().getResource("AdoptableCats.fxml"));
-    rootPane.getChildren().setAll(pane);
-  }
-
-  @FXML
-  public void handleGroomersMenuItem(ActionEvent actionEvent) throws IOException {
-    AnchorPane pane = FXMLLoader.load(getClass().getResource("AnimalCare.fxml"));
-    rootPane.getChildren().setAll(pane);
-  }
-
-  @FXML
-  public void handleAnimalInfoMenuItem(ActionEvent actionEvent) throws IOException {
-    AnchorPane pane = FXMLLoader.load(getClass().getResource("AnimalInformation.fxml"));
-    rootPane.getChildren().setAll(pane);
-  }
-  @FXML
   public void handleAnimalSearchMenuItem(ActionEvent actionEvent) throws IOException {
     AnchorPane pane = FXMLLoader.load(getClass().getResource("AnimalSearch.fxml"));
-    rootPane.getChildren().setAll(pane);
-  }
-  @FXML
-  public void handleAnimalStatusMenuItem(ActionEvent actionEvent) throws IOException {
-    AnchorPane pane = FXMLLoader.load(getClass().getResource("AnimalStatus.fxml"));
     rootPane.getChildren().setAll(pane);
   }
 }
