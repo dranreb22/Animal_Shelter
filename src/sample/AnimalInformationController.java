@@ -17,7 +17,6 @@ import javafx.scene.layout.AnchorPane;
 public class AnimalInformationController {
 
     private Timestamp checkInDate;
-    private Timestamp checkOutDate;
     private Timestamp groomDate;
     private Timestamp vetDate;
     private DatabaseManager db = new DatabaseManager();

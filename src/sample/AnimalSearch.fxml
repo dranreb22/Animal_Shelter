@@ -21,7 +21,7 @@
                 <MenuItem fx:id="menuItem_AddAnimal" mnemonicParsing="false" onAction="#handleAddAnimalMenuItem" text="Add Animal" />
                 <MenuItem fx:id="menuItem_EditAnimal" mnemonicParsing="false" onAction="#handleAnimalInfoMenuItem" text="Edit Animal Info" />
                 <MenuItem fx:id="homeItem_AdoptableDogs" mnemonicParsing="false" onAction="#handleAdoptableDogsMenuItem" text="Adoptable" />
-                <MenuItem fx:id="handleAnimalCareMenuItem" mnemonicParsing="false" onAction="#handleAddAnimalMenuItem" text="Animal Care" />
+                <MenuItem fx:id="handleAnimalCareMenuItem" mnemonicParsing="false" onAction="#handleAnimalCareMenuItem" text="Animal Care" />
             </items>
         </MenuButton>
         <TextField fx:id="textField_AnimalName" layoutX="52.0" layoutY="76.0" prefHeight="35.0" prefWidth="289.0" />

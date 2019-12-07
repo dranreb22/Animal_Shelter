@@ -1,6 +1,8 @@
 package sample;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.time.ZoneId;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,10 +12,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class AnimalCareController {
+    private DatabaseManager db = new DatabaseManager();
+    private java.util.Date date;
+    private Timestamp nextVetVisit;
+    private Timestamp nextGroomerVisit;
     @FXML
     private TextField textField_LastGroomerVisit;
     @FXML
-    private TextField textField__LastVetVisit;
+    private TextField textField_LastVetVisit;
     @FXML
     private DatePicker datePicker_ScheduleVetVisit;
     @FXML
@@ -56,5 +62,31 @@ public class AnimalCareController {
     public void handleAnimalInfoMenuItem(ActionEvent actionEvent) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("AnimalInformation.fxml"));
         rootPane.getChildren().setAll(pane);
+    }
+    @FXML
+    public void handleEnterButton(ActionEvent actionEvent){
+            String lastVetVisit = textField_LastVetVisit.getText();
+            String lastGroomerVisit = textField_LastGroomerVisit.getText();
+
+            date = convertToDatePicker(datePicker_ScheduleVetVisit);
+            nextVetVisit = new Timestamp(date.getTime());
+
+            date = convertToDatePicker(datePicker_ScheduleGroomerVisit);
+            nextGroomerVisit = new Timestamp(date.getTime());
+
+            db.scheduleVisit(lastVetVisit, lastGroomerVisit, nextVetVisit, nextGroomerVisit);
+
+            textField_LastVetVisit.clear();
+            textField_LastGroomerVisit.clear();
+            datePicker_ScheduleVetVisit.getEditor().clear();
+            datePicker_ScheduleGroomerVisit.getEditor().clear();
+
+
+    }
+    public java.util.Date convertToDatePicker(DatePicker datePicked) {
+        date = java.util.Date
+                .from(datePicked.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+        return date;
     }
 }

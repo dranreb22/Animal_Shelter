@@ -112,8 +112,31 @@ public class DatabaseManager {
 
             ex.printStackTrace();
         }
+    }
 
+    public void scheduleVisit(String lastVetVisit, String lastGroomerVisit, Timestamp nextVetVisit, Timestamp nextGroomerVisit) {
+        String[] lastDates= new String[]{lastVetVisit, lastGroomerVisit};
 
+        Timestamp[] newAppointments = new Timestamp[]{nextVetVisit, nextGroomerVisit};
+
+        try {
+            //Execute a query
+            animalQuery = "INSERT INTO appointments VALUES(?,?,?,?)";
+            preparedStatement = conn.prepareStatement(animalQuery);
+            for (String s : lastDates) {
+                preparedStatement.setString(index, s);
+                index++;
+            }
+
+            for (Timestamp ts : newAppointments) {
+                preparedStatement.setTimestamp(index, ts);
+                index++;
+            }
+            preparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+
+            ex.printStackTrace();
+        }
     }
 
  /* public void adoptAnimal(String name, String adoptionDate) {
