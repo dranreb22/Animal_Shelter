@@ -49,6 +49,6 @@
                 <DatePicker fx:id="datePicker_ScheduleGroomerVisit" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             </children>
         </GridPane>
-        <Button fx:id="comboBox_Enter" layoutX="399.0" layoutY="330.0" mnemonicParsing="false" text="Enter" />
+        <Button fx:id="comboBox_Enter" layoutX="399.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleEnterButton" text="Enter" />
     </children>
 </AnchorPane>

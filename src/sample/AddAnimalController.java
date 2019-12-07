@@ -2,6 +2,7 @@ package sample;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.sql.SQLException;
 import java.util.Arrays;
 
 import javafx.event.ActionEvent;
@@ -11,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class AddAnimalController {
+    private DatabaseManager db = new DatabaseManager();
     @FXML
     private AnchorPane rootPane;
     @FXML
@@ -52,9 +54,9 @@ public class AddAnimalController {
     }
 
     @FXML
-    public String[] getNewAnimalInfo() {
+    public void addNewAnimal() throws SQLException {
         String[] separateInfo={textField_Name.getText().trim(),textField_Species.getText().trim(), textField_SubSpecies.getText().trim()};
-        return separateInfo;
+        db.addAnimal(separateInfo);
     }
 
 }

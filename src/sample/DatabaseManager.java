@@ -180,4 +180,17 @@ public class DatabaseManager {
         }
         return animalsInDB;
     }
+    public void addAnimal(String[] animalInfo) throws SQLException {
+        try {
+            animalQuery = "INSERT INTO animal(NAME,SUBSPECIES,BREED) VALUES(?,?,?)";
+            preparedStatement = conn.prepareStatement(animalQuery);
+            preparedStatement.setString(1,animalInfo[0]);
+            preparedStatement.setString(2,animalInfo[1]);
+            preparedStatement.setString(3,animalInfo[2]);
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
 }

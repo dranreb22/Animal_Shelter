@@ -35,17 +35,16 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
                 <Label text="Name" />
                 <Label text="Species" GridPane.rowIndex="1" />
-                <Label text="Sub-Species" GridPane.rowIndex="2" />
+                <Label text="Breed" GridPane.rowIndex="2" />
                 <TextField fx:id="textField_Name" GridPane.columnIndex="1" />
                 <TextField fx:id="textField_Species" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <TextField fx:id="textField_SubSpecies" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             </children>
         </GridPane>
-        <Button layoutX="457.0" layoutY="314.0" mnemonicParsing="false" onAction="#getNewAnimalInfo" text="Add" />
+        <Button layoutX="457.0" layoutY="314.0" mnemonicParsing="false" onAction="#addNewAnimal" text="Add" />
     </children>
 </AnchorPane>

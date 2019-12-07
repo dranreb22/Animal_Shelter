@@ -35,11 +35,8 @@ public class HomePageController {
 
     @FXML
     public void handleAddAnimalMenuItem(ActionEvent actionEvent) throws IOException {
-        System.out.println("Z");
         AnchorPane pane = FXMLLoader.load(getClass().getResource("AddAnimal.fxml"));
-        System.out.println("Z");
         rootPane.getChildren().setAll(pane);
-        System.out.println("Zzz");
     }
 
     @FXML
