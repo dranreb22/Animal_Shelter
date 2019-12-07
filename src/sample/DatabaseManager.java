@@ -77,15 +77,15 @@ public class DatabaseManager {
 
     /**
      * @param name
-     * @param subSpecies
+     * @param species
      * @param breed
      * @param checkInDate
      * @param groomDate
      * @param vetCheckDate
      */
-    void updateAnimalInDB(String name, String subSpecies, String breed, Timestamp checkInDate,
+    void updateAnimalInDB(String name, String species, String breed, Timestamp checkInDate,
                           Timestamp groomDate, Timestamp vetCheckDate) {
-        animalInformationStr = new String[]{breed, subSpecies};
+        animalInformationStr = new String[]{breed, species};
 
         animalInformationDate = new Timestamp[]{checkInDate, groomDate, vetCheckDate};
 

@@ -28,9 +28,11 @@ public class AnimalInformationController {
     @FXML
     private TextField textField_Name;
     @FXML
-    private DatePicker datePicker_CheckedIn;
+    private TextField textField_Species;
     @FXML
-    private DatePicker datePicker_CheckedOut;
+    private TextField textField_Breed;
+    @FXML
+    private DatePicker datePicker_CheckedIn;
     @FXML
     private DatePicker datePicker_Groomers;
     @FXML
@@ -40,8 +42,8 @@ public class AnimalInformationController {
     @FXML
     public void handleUpdateBtn(ActionEvent actionEvent) {
         String name = textField_Name.getText();
-        //String species = textField_Species.getText()
-        //String subSpecies = textField_Species.getText()
+        String species = textField_Species.getText();
+        String breed = textField_Breed.getText();
 
         date = convertToDatePicker(datePicker_CheckedIn);
         checkInDate = new Timestamp(date.getTime());
@@ -52,11 +54,12 @@ public class AnimalInformationController {
         date = convertToDatePicker(datePicker_VetVisit);
         vetDate = new Timestamp(date.getTime());
 
-        db.updateAnimalInDB(name, null, null, checkInDate, groomDate, vetDate);
+        db.updateAnimalInDB(name, species, breed, checkInDate, groomDate, vetDate);
 
         textField_Name.clear();
+        textField_Breed.clear();
+        textField_Species.clear();
         datePicker_CheckedIn.getEditor().clear();
-        datePicker_CheckedOut.getEditor().clear();
         datePicker_Groomers.getEditor().clear();
         datePicker_VetVisit.getEditor().clear();
     }
@@ -105,4 +108,5 @@ public class AnimalInformationController {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("AnimalSearch.fxml"));
         rootPane.getChildren().setAll(pane);
     }
+
 }
