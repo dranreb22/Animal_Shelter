@@ -37,7 +37,6 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
                 <Label text="Last Groomer Visit" GridPane.rowIndex="1" />
@@ -50,6 +49,6 @@
                 <DatePicker fx:id="datePicker_ScheduleGroomerVisit" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             </children>
         </GridPane>
-        <Button fx:id="comboBox_Enter" layoutX="399.0" layoutY="330.0" mnemonicParsing="false" text="Enter" />
+        <Button fx:id="comboBox_Enter" layoutX="399.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleEnterButton" text="Enter" />
     </children>
 </AnchorPane>

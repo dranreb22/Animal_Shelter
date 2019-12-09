@@ -29,7 +29,6 @@ public class AdoptableController implements Initializable {
         db.initializeDb();
         animalList = FXCollections.observableArrayList(db.getAvailableAnimals());
         tbv_adoptableDogs.setItems(animalList);
-        db.closeDB();
     }
 
     @FXML

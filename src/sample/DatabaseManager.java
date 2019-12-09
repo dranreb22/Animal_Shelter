@@ -162,17 +162,17 @@ public class DatabaseManager {
     public List<Animal> getAvailableAnimals() {
         List<Animal> animalsInDB = new ArrayList<>();
         try {
-            animalQuery = "SELECT * FROM ANIMAL";
+            animalQuery = "SELECT * FROM ANIMALS";
             preparedStatement = conn.prepareStatement(animalQuery);
             result = preparedStatement.executeQuery();
             while (result.next()) {
                 int ID = result.getInt("COLLARID");
                 String name = result.getString("NAME");
-                String subspecies = result.getString("SUBSPECIES");
+                String subspecies = result.getString("SPECIES");
                 String breed = result.getString("BREED");
-                Timestamp checkInDate = result.getTimestamp("CHECKINDATE");
-                Timestamp groomDate = result.getTimestamp("GROOMDATE");
-                Timestamp vetCheckDate = result.getTimestamp("VETCHECKDATE");
+                Timestamp checkInDate = result.getTimestamp("CHECKEDIN");
+                Timestamp groomDate = result.getTimestamp("LASTGROOMED");
+                Timestamp vetCheckDate = result.getTimestamp("LASTCHECKUP");
                 animalsInDB.add(new Animal(ID, name, subspecies, breed, checkInDate, groomDate, vetCheckDate));
             }
         } catch (SQLException ex) {
@@ -182,11 +182,13 @@ public class DatabaseManager {
     }
     public void addAnimal(String[] animalInfo) throws SQLException {
         try {
-            animalQuery = "INSERT INTO animal(NAME,SUBSPECIES,BREED) VALUES(?,?,?)";
+            initializeDb();
+            animalQuery = "INSERT INTO ANIMALS(NAME,SPECIES,BREED) VALUES(?,?,?)";
             preparedStatement = conn.prepareStatement(animalQuery);
             preparedStatement.setString(1,animalInfo[0]);
             preparedStatement.setString(2,animalInfo[1]);
             preparedStatement.setString(3,animalInfo[2]);
+            preparedStatement.executeUpdate();
         }
         catch (SQLException ex) {
             ex.printStackTrace();

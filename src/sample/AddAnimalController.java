@@ -57,6 +57,9 @@ public class AddAnimalController {
     public void addNewAnimal() throws SQLException {
         String[] separateInfo={textField_Name.getText().trim(),textField_Species.getText().trim(), textField_SubSpecies.getText().trim()};
         db.addAnimal(separateInfo);
+        textField_Name.clear();
+        textField_Species.clear();
+        textField_SubSpecies.clear();
     }
 
 }
