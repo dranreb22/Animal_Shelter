@@ -19,7 +19,6 @@ public class DatabaseManager {
     private ResultSet result;
     private String animalQuery;
     private String delQuery;
-    private int index = 1;
     private String[] animalInformationStr;
     private Timestamp[] animalInformationDate;
 
@@ -55,27 +54,6 @@ public class DatabaseManager {
         }
     }
 
-    public void checkInAnimal(String name, String species, String subSpecies) {
-        animalInformationStr = new String[]{name, species, subSpecies};
-        try {
-
-            //Execute a query
-            animalQuery = "INSERT INTO ANIMAL(NAME, SUBSPECIES, BREED)"
-                    + "VALUES (?, ?, ?)";
-
-            preparedStatement = conn.prepareStatement(animalQuery);
-            for (String s : animalInformationStr) {
-                System.out.println(s);
-                preparedStatement.setString(index, s);
-                index++;
-            }
-            preparedStatement.executeUpdate();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-
     void updateAnimalInDB(String name, Timestamp groomDate,
                           Timestamp vetDate, String collarID) {
 
@@ -98,6 +76,7 @@ public class DatabaseManager {
 
     public void scheduleVisit(String lastVetVisit, String lastGroomerVisit, Timestamp nextVetVisit, Timestamp nextGroomerVisit) {
         String[] lastDates = new String[]{lastVetVisit, lastGroomerVisit};
+        int index = 1;
 
         Timestamp[] newAppointments = new Timestamp[]{nextVetVisit, nextGroomerVisit};
 
