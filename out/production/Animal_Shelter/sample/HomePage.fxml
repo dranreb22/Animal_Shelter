@@ -54,7 +54,7 @@
       </SplitPane>
     </AnchorPane>
   </SplitPane>
-  <MenuButton alignment="CENTER" contentDisplay="RIGHT" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" text="Search Animal" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+  <MenuButton alignment="CENTER" contentDisplay="RIGHT" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" text="Home" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
     <font>
       <Font size="18.0" />
