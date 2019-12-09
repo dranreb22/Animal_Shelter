@@ -2,16 +2,19 @@ package sample;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.Arrays;
 
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-public class AddAnimalController {
+public class AddAnimalController implements Initializable {
     private DatabaseManager db = new DatabaseManager();
     @FXML
     private AnchorPane rootPane;
@@ -21,6 +24,11 @@ public class AddAnimalController {
     private TextField textField_Species;
     @FXML
     private TextField textField_SubSpecies;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        db.initializeDb();
+    }
 
     @FXML
     public void handleHomeMenuItem(ActionEvent actionEvent) throws IOException {

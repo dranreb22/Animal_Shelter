@@ -1,8 +1,11 @@
 package sample;
 
 
+import java.net.URL;
 import java.sql.Timestamp;
 
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -13,8 +16,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.DatePicker;
 import javafx.scene.layout.AnchorPane;
+import org.omg.CosNaming.BindingIterator;
 
-public class AnimalInformationController {
+public class AnimalInformationController implements Initializable {
 
     private Timestamp checkInDate;
     private Timestamp groomDate;
@@ -33,6 +37,11 @@ public class AnimalInformationController {
     @FXML
     private DatePicker datePicker_VetVisit;
 
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        db.initializeDb();
+    }
 
     @FXML
     public void handleUpdateBtn(ActionEvent actionEvent) {

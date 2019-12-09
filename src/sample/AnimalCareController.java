@@ -1,17 +1,20 @@
 package sample;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Timestamp;
 import java.time.ZoneId;
 
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-public class AnimalCareController {
+public class AnimalCareController implements Initializable {
 
   private DatabaseManager db = new DatabaseManager();
   private java.util.Date date;
@@ -29,6 +32,11 @@ public class AnimalCareController {
   private DatePicker datePicker_ScheduleGroomerVisit;
   @FXML
   private AnchorPane rootPane;
+
+  @Override
+  public void initialize(URL location, ResourceBundle resources) {
+    db.initializeDb();
+  }
 
   @FXML
   public void handleAdoptableMenuItem(ActionEvent actionEvent) throws IOException {
@@ -78,7 +86,7 @@ public class AnimalCareController {
     date = convertToDatePicker(datePicker_ScheduleGroomerVisit);
     nextGroomerVisit = new Timestamp(date.getTime());
 
-    int collarID = Integer.parseInt(textField_CollarID.toString());
+    int collarID = Integer.parseInt(textField_CollarID.getText());
 
     db.scheduleVisit(vetNotes, groomerNotes, nextVetVisit, nextGroomerVisit, collarID);
 

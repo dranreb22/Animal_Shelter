@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AnimalSearchController">
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.231" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AnimalSearchController">
     <children>
         <MenuButton alignment="CENTER" contentDisplay="RIGHT" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" text="Search Animal" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <font>
@@ -30,7 +30,7 @@
         <Button fx:id="button_AnimalSearch" layoutX="415.0" layoutY="76.0" mnemonicParsing="false" onAction="#getSearchResults" prefHeight="35.0" prefWidth="83.0" text="Search" />
       <ScrollPane layoutX="14.0" layoutY="111.0" prefHeight="281.0" prefWidth="600.0">
          <content>
-            <TableView fx:id="tbv_SearchAnimal" onSort="#getSearchResults" prefHeight="281.0" prefWidth="1007.0">
+            <TableView fx:id="tbv_SearchAnimal" onSort="#getSearchResults" prefHeight="281.0" prefWidth="1390.0">
                <columns>
                   <TableColumn prefWidth="98.99996948242188" text="Name">
                      <cellValueFactory>
@@ -67,6 +67,26 @@
                         <PropertyValueFactory property="lastGroomed" />
                      </cellValueFactory>
                   </TableColumn>
+                 <TableColumn prefWidth="128.0" text="Next Vet Visit">
+                   <cellValueFactory>
+                     <PropertyValueFactory property="nextVetVisit" />
+                   </cellValueFactory>
+                 </TableColumn>
+                 <TableColumn prefWidth="128.0" text="Next Groomer Visit">
+                   <cellValueFactory>
+                     <PropertyValueFactory property="nextGroomerVisit" />
+                   </cellValueFactory>
+                 </TableColumn>
+                 <TableColumn prefWidth="128.0" text="Vet Notes">
+                   <cellValueFactory>
+                     <PropertyValueFactory property="vetNotes" />
+                   </cellValueFactory>
+                 </TableColumn>
+                 <TableColumn prefWidth="128.0" text="Groomer Notes">
+                   <cellValueFactory>
+                     <PropertyValueFactory property="groomerNotes" />
+                   </cellValueFactory>
+                 </TableColumn>
                </columns>
             </TableView>
          </content>
