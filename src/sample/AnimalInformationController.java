@@ -50,6 +50,7 @@ public class AnimalInformationController {
         textField_Name.clear();
         datePicker_Groomers.getEditor().clear();
         datePicker_VetVisit.getEditor().clear();
+        textField_CollarID.clear();
     }
 
     public java.util.Date convertToDatePicker(DatePicker datePicked) {

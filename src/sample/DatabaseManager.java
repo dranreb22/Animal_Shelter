@@ -55,38 +55,19 @@ public class DatabaseManager {
         }
     }
 
-    public void checkInAnimal(String name, String species, String subSpecies) {
-        animalInformationStr = new String[]{name, species, subSpecies};
-        try {
-
-            //Execute a query
-            animalQuery = "INSERT INTO ANIMAL(NAME, SUBSPECIES, BREED)"
-                    + "VALUES (?, ?, ?)";
-
-            preparedStatement = conn.prepareStatement(animalQuery);
-            for (String s : animalInformationStr) {
-                System.out.println(s);
-                preparedStatement.setString(index, s);
-                index++;
-            }
-            preparedStatement.executeUpdate();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
-
 
     void updateAnimalInDB(String name, Timestamp groomDate,
                           Timestamp vetDate, String collarID) {
 
         try {
             //Execute a query
+            initializeDb();
             animalQuery =
-                    "UPDATE ANIMAL SET NAME = ?, LASTGROOMED = ?, LASTCHECKUP = ? where COLLARID = ?";
+                    "UPDATE ANIMALS SET ANIMALNAME = ?, LASTGROOMED = ?, LASTCHECKUP = ? where COLLARID = ?";
             preparedStatement = conn.prepareStatement(animalQuery);
-           preparedStatement.setString(1,name);
+            preparedStatement.setString(1, name);
             preparedStatement.setTimestamp(2, groomDate);
-            preparedStatement.setTimestamp(3,vetDate);
+            preparedStatement.setTimestamp(3, vetDate);
             preparedStatement.setString(4, collarID);
 
             preparedStatement.executeUpdate();
@@ -102,6 +83,7 @@ public class DatabaseManager {
         Timestamp[] newAppointments = new Timestamp[]{nextVetVisit, nextGroomerVisit};
 
         try {
+            initializeDb();
             //Execute a query
             animalQuery = "INSERT INTO ANIMALS VALUES(?,?,?,?)";
             preparedStatement = conn.prepareStatement(animalQuery);
@@ -144,12 +126,38 @@ public class DatabaseManager {
     public List<Animal> getAvailableAnimals() {
         List<Animal> animalsInDB = new ArrayList<>();
         try {
+            initializeDb();
             animalQuery = "SELECT * FROM ANIMALS";
             preparedStatement = conn.prepareStatement(animalQuery);
             result = preparedStatement.executeQuery();
             while (result.next()) {
                 int ID = result.getInt("COLLARID");
-                String name = result.getString("NAME");
+                String name = result.getString("ANIMALNAME");
+                String subspecies = result.getString("SPECIES");
+                String breed = result.getString("BREED");
+                Timestamp checkInDate = result.getTimestamp("CHECKEDIN");
+                Timestamp groomDate = result.getTimestamp("LASTGROOMED");
+                Timestamp vetCheckDate = result.getTimestamp("LASTCHECKUP");
+                animalsInDB.add(new Animal(ID, name, subspecies, breed, checkInDate, groomDate, vetCheckDate));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return animalsInDB;
+    }
+    public List<Animal> getAnimalSearch(String animalName) {
+        List<Animal> animalsInDB = new ArrayList<>();
+        try {
+            initializeDb();
+            animalQuery = "SELECT * FROM ANIMALS WHERE ANIMALNAME LIKE ? OR SPECIES LIKE ? OR BREED LIKE ?";
+            preparedStatement = conn.prepareStatement(animalQuery);
+            preparedStatement.setString(1,animalName);
+            preparedStatement.setString(2,animalName);
+            preparedStatement.setString(3,animalName);
+            result = preparedStatement.executeQuery();
+            while (result.next()) {
+                int ID = result.getInt("COLLARID");
+                String name = result.getString("ANIMALNAME");
                 String subspecies = result.getString("SPECIES");
                 String breed = result.getString("BREED");
                 Timestamp checkInDate = result.getTimestamp("CHECKEDIN");
@@ -165,8 +173,9 @@ public class DatabaseManager {
 
     public void addAnimal(String[] animalInfo) throws SQLException {
         try {
+
             initializeDb();
-            animalQuery = "INSERT INTO ANIMALS(NAME,SPECIES,BREED) VALUES(?,?,?)";
+            animalQuery = "INSERT INTO ANIMALS(ANIMALNAME,SPECIES,BREED) VALUES(?,?,?)";
             preparedStatement = conn.prepareStatement(animalQuery);
             preparedStatement.setString(1, animalInfo[0]);
             preparedStatement.setString(2, animalInfo[1]);
