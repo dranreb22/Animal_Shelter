@@ -60,7 +60,7 @@ public class DatabaseManager {
         try {
             //Execute a query
             animalQuery =
-                    "UPDATE ANIMAL SET NAME = ?, LASTGROOMED = ?, LASTCHECKUP = ? where COLLARID = ?";
+                    "UPDATE ANIMALS SET NAME = ?, LASTGROOMED = ?, LASTCHECKUP = ? where COLLARID = ?";
             preparedStatement = conn.prepareStatement(animalQuery);
            preparedStatement.setString(1,name);
             preparedStatement.setTimestamp(2, groomDate);
@@ -74,15 +74,16 @@ public class DatabaseManager {
         }
     }
 
-    public void scheduleVisit(String lastVetVisit, String lastGroomerVisit, Timestamp nextVetVisit, Timestamp nextGroomerVisit) {
+    public void scheduleVisit(String lastVetVisit, String lastGroomerVisit, Timestamp nextVetVisit, Timestamp nextGroomerVisit, int collarID) {
         String[] lastDates = new String[]{lastVetVisit, lastGroomerVisit};
         int index = 1;
 
         Timestamp[] newAppointments = new Timestamp[]{nextVetVisit, nextGroomerVisit};
 
         try {
+            initializeDb();
             //Execute a query
-            animalQuery = "INSERT INTO ANIMALS VALUES(?,?,?,?)";
+            animalQuery = "INSERT INTO ANIMALS VALUES(?,?,?,?) where collarID = ?";
             preparedStatement = conn.prepareStatement(animalQuery);
             for (String s : lastDates) {
                 preparedStatement.setString(index, s);
@@ -93,6 +94,7 @@ public class DatabaseManager {
                 preparedStatement.setTimestamp(index, ts);
                 index++;
             }
+            preparedStatement.setInt(index, collarID);
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
 
@@ -134,7 +136,11 @@ public class DatabaseManager {
                 Timestamp checkInDate = result.getTimestamp("CHECKEDIN");
                 Timestamp groomDate = result.getTimestamp("LASTGROOMED");
                 Timestamp vetCheckDate = result.getTimestamp("LASTCHECKUP");
-                animalsInDB.add(new Animal(ID, name, subspecies, breed, checkInDate, groomDate, vetCheckDate));
+                Timestamp nextVetVisit = result.getTimestamp("NEXTVETVISIT");
+                Timestamp nextGroomerVisit = result.getTimestamp("NEXTGROOMERVISIT");
+                String vetNotes = result.getString("VetNotes");
+                String groomerNotes = result.getString("Groomernotes");
+                animalsInDB.add(new Animal(ID, name, subspecies, breed, checkInDate, groomDate, vetCheckDate, vetNotes, groomerNotes, nextVetVisit, nextGroomerVisit ));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

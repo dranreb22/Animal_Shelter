@@ -10,68 +10,88 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AdoptableController">
-    <children>
-        <MenuButton fx:id="btn_adoptableDogs" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" text="Adoptable Animals" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <font>
-                <Font size="18.0" />
-            </font>
-            <items>
-                <MenuItem fx:id="menuItem_HomePage" mnemonicParsing="false" onAction="#handleHomeMenuItem" text="Home" />
-                <MenuItem fx:id="menuItem_HomePage1" mnemonicParsing="false" onAction="#handleAddAnimalMenuItem" text="Add Animal" />
-                <MenuItem fx:id="menuItem_HomePage11" mnemonicParsing="false" onAction="#handleAnimalSearchMenuItem" text="Search Animal" />
-            <MenuItem fx:id="menuItem_HomePage12" mnemonicParsing="false" onAction="#handleAnimalInfoMenuItem" text="Edit Animal Info" />
-                <MenuItem fx:id="menuItem_HomePage111" mnemonicParsing="false" text="Adoptable" />
-                <MenuItem fx:id="menuItem_HomePage112" mnemonicParsing="false" onAction="#handleAnimalCareMenuItem" text="Animal Care" />
-            </items>
-        </MenuButton>
-        <ScrollPane layoutX="34.0" layoutY="39.0" prefHeight="362.0" prefWidth="508.0">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="367.0" prefWidth="816.0">
-                    <children>
-                        <TableView fx:id="tbv_adoptableDogs" prefHeight="343.0" prefWidth="1094.0">
-                            <columns>
-                                <TableColumn prefWidth="98.99996948242188" text="Name">
-                                    <cellValueFactory>
-                                        <PropertyValueFactory property="name" />
-                                    </cellValueFactory>
-                                </TableColumn>
-                                <TableColumn prefWidth="126.0" text="Subspecies">
-                                    <cellValueFactory>
-                                        <PropertyValueFactory property="species" />
-                                    </cellValueFactory>
-                                </TableColumn>
-                                <TableColumn prefWidth="128.0" text="Breed">
-                                    <cellValueFactory>
-                                        <PropertyValueFactory property="breed" />
-                                    </cellValueFactory>
-                                </TableColumn>
-                                <TableColumn prefWidth="128.0" text="Collar ID">
-                                    <cellValueFactory>
-                                        <PropertyValueFactory property="collarID" />
-                                    </cellValueFactory>
-                                </TableColumn>
-                                <TableColumn prefWidth="128.0" text="Check In Date">
-                                    <cellValueFactory>
-                                        <PropertyValueFactory property="checkedIn" />
-                                    </cellValueFactory>
-                                </TableColumn>
-                                <TableColumn prefWidth="128.0" text="Last Checkup">
-                                    <cellValueFactory>
-                                        <PropertyValueFactory property="lastCheckUp" />
-                                    </cellValueFactory>
-                                </TableColumn>
-                                <TableColumn prefWidth="128.0" text="Last Groom">
-                                    <cellValueFactory>
-                                        <PropertyValueFactory property="lastGroomed" />
-                                    </cellValueFactory>
-                                </TableColumn>
-                            </columns>
-                        </TableView>
-                    </children>
-                </AnchorPane>
-            </content>
-        </ScrollPane>
-        <Button fx:id="btn_adopt" layoutX="493.0" layoutY="444.0" mnemonicParsing="false" text="Adopt" />
-    </children>
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.231" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AdoptableController">
+  <children>
+    <MenuButton fx:id="btn_adoptableDogs" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" text="Adoptable Animals" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <font>
+        <Font size="18.0" />
+      </font>
+      <items>
+        <MenuItem fx:id="menuItem_HomePage" mnemonicParsing="false" onAction="#handleHomeMenuItem" text="Home" />
+        <MenuItem fx:id="menuItem_HomePage1" mnemonicParsing="false" onAction="#handleAddAnimalMenuItem" text="Add Animal" />
+        <MenuItem fx:id="menuItem_HomePage11" mnemonicParsing="false" onAction="#handleAnimalSearchMenuItem" text="Search Animal" />
+        <MenuItem fx:id="menuItem_HomePage12" mnemonicParsing="false" onAction="#handleAnimalInfoMenuItem" text="Edit Animal Info" />
+        <MenuItem fx:id="menuItem_HomePage111" mnemonicParsing="false" text="Adoptable" />
+        <MenuItem fx:id="menuItem_HomePage112" mnemonicParsing="false" onAction="#handleAnimalCareMenuItem" text="Animal Care" />
+      </items>
+    </MenuButton>
+  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="367.0" prefWidth="1094.0">
+         <children>
+          <ScrollPane layoutX="14.0" layoutY="70.0" prefHeight="362.0" prefWidth="600.0">
+               <content>
+            <TableView fx:id="tbv_adoptableDogs" prefHeight="343.0" prefWidth="1390.0">
+              <columns>
+                <TableColumn prefWidth="98.99996948242188" text="Name">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="name" />
+                  </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="126.0" text="Subspecies">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="species" />
+                  </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="128.0" text="Breed">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="breed" />
+                  </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="128.0" text="Collar ID">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="collarID" />
+                  </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="128.0" text="Check In Date">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="checkedIn" />
+                  </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="128.0" text="Last Checkup">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="lastCheckUp" />
+                  </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="128.0" text="Last Groom">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="lastGroomed" />
+                  </cellValueFactory>
+                </TableColumn>
+                  <TableColumn prefWidth="128.0" text="Next Vet Visit">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="nextVetVisit" />
+                  </cellValueFactory>
+                </TableColumn>
+                  <TableColumn prefWidth="128.0" text="Next Groomer Visit">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="nextGroomerVisit" />
+                  </cellValueFactory>
+                </TableColumn>
+                  <TableColumn prefWidth="128.0" text="Vet Notes">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="vetNotes" />
+                  </cellValueFactory>
+                </TableColumn>
+                  <TableColumn prefWidth="128.0" text="Groomer Notes">
+                  <cellValueFactory>
+                    <PropertyValueFactory property="groomerNotes" />
+                  </cellValueFactory>
+                </TableColumn>
+            
+              </columns>
+            </TableView>
+               </content>
+          </ScrollPane>
+         </children></AnchorPane>
+    <Button fx:id="btn_adopt" layoutX="493.0" layoutY="444.0" mnemonicParsing="false" text="Adopt" />
+  </children>
 </AnchorPane>
