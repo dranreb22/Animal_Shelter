@@ -16,8 +16,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class AnimalSearchController implements Initializable {
 
-  private DatabaseManager db = new DatabaseManager();
-  private ObservableList<Animal> animalList;
+  private final DatabaseManager db = new DatabaseManager();
   @FXML
   private AnchorPane rootPane;
   @FXML
@@ -25,10 +24,10 @@ public class AnimalSearchController implements Initializable {
   @FXML
   private TableView<Animal> tbv_SearchAnimal;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        db.initializeDb();
-    }
+  @Override
+  public void initialize(URL location, ResourceBundle resources) {
+    db.initializeDb();
+  }
 
   @FXML
   public void handleAdoptableDogsMenuItem(ActionEvent actionEvent) throws IOException {
@@ -58,7 +57,6 @@ public class AnimalSearchController implements Initializable {
   public void handleAnimalCareMenuItem(ActionEvent actionEvent) throws IOException {
     AnchorPane pane = FXMLLoader.load(getClass().getResource("AnimalCare.fxml"));
     rootPane.getChildren().setAll(pane);
-    System.out.println("You would like to adopt a dog!!");
   }
 
   @FXML
@@ -75,16 +73,15 @@ public class AnimalSearchController implements Initializable {
 
   @FXML
   public String getSearchQuery() {
-      System.out.println(textField_AnimalName.getText());
     return (textField_AnimalName.getText());
 
   }
 
   @FXML
   public void getSearchResults() {
-    animalList = FXCollections.observableArrayList(db.getAnimalSearch(getSearchQuery()));
+    ObservableList<Animal> animalList = FXCollections
+        .observableArrayList(db.getAnimalSearch(getSearchQuery()));
     tbv_SearchAnimal.setItems(animalList);
-      System.out.println(animalList);
   }
 
 

@@ -18,7 +18,8 @@ public class Animal {
   private Timestamp lastGroomed;
 
   Animal(int collarID, String name, String species, String breed, Timestamp checkedIn,
-      Timestamp lastCheckUp, Timestamp lastGroomed, String vetNotes, String groomerNotes, Timestamp nextVetVisit, Timestamp nextGroomerVisit ) {
+      Timestamp lastCheckUp, Timestamp lastGroomed, String vetNotes, String groomerNotes,
+      Timestamp nextVetVisit, Timestamp nextGroomerVisit) {
     this.collarID = collarID;
     this.name = name;
     this.species = species;
@@ -105,11 +106,21 @@ public class Animal {
     return nextGroomerVisit;
   }
 
-  public void setVetNotes(String vetNotes){ this.vetNotes = vetNotes;}
-  public String getVetNotes(){return vetNotes;}
+  public void setVetNotes(String vetNotes) {
+    this.vetNotes = vetNotes;
+  }
 
-  public void setGroomerNotes(String groomerNotes){this.groomerNotes = groomerNotes;}
-  public String getGroomerNotes(){return groomerNotes;}
+  public String getVetNotes() {
+    return vetNotes;
+  }
+
+  public void setGroomerNotes(String groomerNotes) {
+    this.groomerNotes = groomerNotes;
+  }
+
+  public String getGroomerNotes() {
+    return groomerNotes;
+  }
 
   @Override
   public String toString() {

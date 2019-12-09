@@ -16,10 +16,8 @@ import javafx.scene.layout.AnchorPane;
 
 public class AnimalCareController implements Initializable {
 
-  private DatabaseManager db = new DatabaseManager();
+  private final DatabaseManager db = new DatabaseManager();
   private java.util.Date date;
-  private Timestamp nextVetVisit;
-  private Timestamp nextGroomerVisit;
   @FXML
   private TextField textField_VetNotes;
   @FXML
@@ -81,10 +79,10 @@ public class AnimalCareController implements Initializable {
     String groomerNotes = textField_GroomerNotes.getText();
 
     date = convertToDatePicker(datePicker_ScheduleVetVisit);
-    nextVetVisit = new Timestamp(date.getTime());
+    Timestamp nextVetVisit = new Timestamp(date.getTime());
 
     date = convertToDatePicker(datePicker_ScheduleGroomerVisit);
-    nextGroomerVisit = new Timestamp(date.getTime());
+    Timestamp nextGroomerVisit = new Timestamp(date.getTime());
 
     int collarID = Integer.parseInt(textField_CollarID.getText());
 
@@ -94,6 +92,7 @@ public class AnimalCareController implements Initializable {
     textField_GroomerNotes.clear();
     datePicker_ScheduleVetVisit.getEditor().clear();
     datePicker_ScheduleGroomerVisit.getEditor().clear();
+    textField_CollarID.clear();
 
 
   }

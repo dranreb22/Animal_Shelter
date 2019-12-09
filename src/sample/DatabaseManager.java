@@ -1,13 +1,11 @@
 package sample;
 
-import java.sql.Date;
 import java.sql.ResultSet;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +16,7 @@ public class DatabaseManager {
   private PreparedStatement preparedStatement;
   private ResultSet result;
   private String animalQuery;
-  private String delQuery;
   private int index = 1;
-  private String[] animalInformationStr;
-  private Timestamp[] animalInformationDate;
 
 
   void initializeDb() {
@@ -85,7 +80,7 @@ public class DatabaseManager {
         preparedStatement.setTimestamp(index, ts);
         index++;
       }
-        preparedStatement.setInt(index, collarID);
+      preparedStatement.setInt(index, collarID);
       preparedStatement.executeUpdate();
 
     } catch (SQLException ex) {
@@ -94,25 +89,27 @@ public class DatabaseManager {
     }
   }
 
- /* public void adoptAnimal(String name, String adoptionDate) {
-    animalInformationStr = new String[]{name, adoptionDate};
+  public void resetID() {
     try {
-
-      //Execute a query
-      animalQuery = "UPDATE ANIMAL SET ADOPTIONDATE = ? WHERE NAME = ?";
-
+      animalQuery = "ALTER TABLE ANIMALS DROP COLUMN COLLARID;"
+          + "ALTER TABLE ANIMALS ADD COLLARID INT NOT NULL AUTO_INCREMENT primary key BEFORE ANIMALNAME";
       preparedStatement = conn.prepareStatement(animalQuery);
-      for (String s : animalInformationStr) {
-        System.out.println(s);
-        preparedStatement.setString(index, s);
-        preparedStatement.setString(index, s);
-        index++;
-      }
       preparedStatement.executeUpdate();
-    } catch (SQLException ex) {
-      ex.printStackTrace();
+    } catch (SQLException e) {
+      e.printStackTrace();
     }
-  }*/
+  }
+
+  public void deleteAnimal(int id) {
+    try {
+      animalQuery = "delete from ANIMALS where ANIMALS.COLLARID = ?";
+      preparedStatement = conn.prepareStatement((animalQuery));
+      preparedStatement.setInt(1, id);
+      preparedStatement.executeUpdate();
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+  }
 
   public List<Animal> getAvailableAnimals() {
     List<Animal> animalsInDB = new ArrayList<>();
@@ -121,15 +118,15 @@ public class DatabaseManager {
       preparedStatement = conn.prepareStatement(animalQuery);
       result = preparedStatement.executeQuery();
       while (result.next()) {
-        int ID = result.getInt("COLLARID");
         String name = result.getString("ANIMALNAME");
-        String subspecies = result.getString("SPECIES");
+        int ID = result.getInt("COLLARID");
+        Timestamp groomDate = result.getTimestamp("LASTGROOMED");
         String breed = result.getString("BREED");
         Timestamp checkInDate = result.getTimestamp("CHECKEDIN");
-        Timestamp groomDate = result.getTimestamp("LASTGROOMED");
         Timestamp vetCheckDate = result.getTimestamp("LASTCHECKUP");
-        Timestamp nextVetVisit = result.getTimestamp("NEXTVETVISIT");
         Timestamp nextGroomerVisit = result.getTimestamp("NEXTGROOMERVISIT");
+        String subspecies = result.getString("SPECIES");
+        Timestamp nextVetVisit = result.getTimestamp("NEXTVETVISIT");
         String vetNotes = result.getString("VetNotes");
         String groomerNotes = result.getString("Groomernotes");
         animalsInDB.add(
@@ -170,11 +167,10 @@ public class DatabaseManager {
     } catch (SQLException ex) {
       ex.printStackTrace();
     }
-    System.out.println(animalsInDB);
     return animalsInDB;
   }
 
-  public void addAnimal(String[] animalInfo) throws SQLException {
+  public void addAnimal(String[] animalInfo) {
     try {
       animalQuery = "INSERT INTO ANIMALS(ANIMALNAME,SPECIES,BREED) VALUES(?,?,?)";
       preparedStatement = conn.prepareStatement(animalQuery);

@@ -8,17 +8,17 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
-        primaryStage.setTitle("Animal Shelter Manager");
-        primaryStage.setScene(new Scene(root, 575, 425));
-        primaryStage.show();
+  @Override
+  public void start(Stage primaryStage) throws Exception {
+    Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+    primaryStage.setTitle("Animal Shelter Manager");
+    primaryStage.setScene(new Scene(root, 575, 425));
+    primaryStage.show();
 
-    }
+  }
 
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+  public static void main(String[] args) {
+    launch(args);
+  }
 }
