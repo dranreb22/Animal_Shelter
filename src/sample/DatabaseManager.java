@@ -121,7 +121,7 @@ public class DatabaseManager {
 
         try {
             //Execute a query
-            animalQuery = "INSERT INTO appointments VALUES(?,?,?,?)";
+            animalQuery = "INSERT INTO ANIMALS VALUES(?,?,?,?)";
             preparedStatement = conn.prepareStatement(animalQuery);
             for (String s : lastDates) {
                 preparedStatement.setString(index, s);
