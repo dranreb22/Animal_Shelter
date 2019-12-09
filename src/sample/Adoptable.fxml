@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0"
-  xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1"
+  xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
   fx:controller="sample.AdoptableController">
   <MenuButton alignment="CENTER" contentDisplay="RIGHT" layoutX="-1.0"
     mnemonicParsing="false" prefHeight="39.0" prefWidth="590.0" text="Adoptable Animals"
@@ -20,6 +20,7 @@
     <font>
       <Font size="18.0"/>
     </font>
+    <items>
     <MenuItem mnemonicParsing="false" onAction="#handleHomeMenuItem" text="Home"/>
     <MenuItem mnemonicParsing="false" onAction="#handleAddAnimalMenuItem" text="Add Animal"/>
     <MenuItem mnemonicParsing="false" onAction="#handleAnimalSearchMenuItem"
@@ -28,6 +29,7 @@
       text="Edit Animal Info"/>
     <MenuItem mnemonicParsing="false" text="Adoptable"/>
     <MenuItem mnemonicParsing="false" onAction="#handleAnimalCareMenuItem" text="Animal Care"/>
+    </items>
   </MenuButton>
   <AnchorPane layoutX="-15.0" layoutY="39.0" minHeight="0.0" minWidth="0.0" prefHeight="367.0"
     prefWidth="1076.0">

@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-  minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141"
+  minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
   xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.HomePageController">
   <SplitPane dividerPositions="0.33153638814016173" layoutX="116.0" layoutY="51.0"
     orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0"
@@ -54,17 +54,19 @@
       </SplitPane>
     </AnchorPane>
   </SplitPane>
-  <MenuButton alignment="CENTER" contentDisplay="RIGHT" layoutY="-5.0" mnemonicParsing="false"
-    prefHeight="39.0" prefWidth="600.0" text="Home">
+  <MenuButton alignment="CENTER" contentDisplay="RIGHT" layoutX="20.0" layoutY="20.0" mnemonicParsing="false" text="Search Animal" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
     <font>
-      <Font size="18.0"/>
+      <Font size="18.0" />
     </font>
-    <MenuItem mnemonicParsing="false" text="Home"/>
-    <MenuItem mnemonicParsing="false" onAction="#handleAnimalSearchMenuItem" text="Search Animal "/>
-    <MenuItem mnemonicParsing="false" onAction="#handleAddAnimalMenuItem" text="Add Animal"/>
-    <MenuItem mnemonicParsing="false" onAction="#handleAnimalInfoMenuItem" text="Edit Animal Info"/>
-    <MenuItem mnemonicParsing="false" onAction="#handleAdoptableDogsMenuItem" text="Adoptable"/>
-    <MenuItem mnemonicParsing="false" onAction="#handleAnimalCareMenuItem" text="Animal Care"/>
+    <items>
+    <MenuItem mnemonicParsing="false" text="Home" />
+    <MenuItem mnemonicParsing="false" onAction="#handleAnimalSearchMenuItem" text="Search Animal" />
+    <MenuItem mnemonicParsing="false" onAction="#handleAddAnimalMenuItem" text="Add Animal" />
+    <MenuItem mnemonicParsing="false" onAction="#handleAnimalInfoMenuItem" text="Edit Animal Info" />
+    <MenuItem mnemonicParsing="false" onAction="#handleAdoptableDogsMenuItem" text="Adoptable" />
+    <MenuItem mnemonicParsing="false" onAction="#handleAnimalCareMenuItem" text="Animal Care" />
+    </items>
   </MenuButton>
   <stylesheets>
     <URL value="@HomePage.css"/>
