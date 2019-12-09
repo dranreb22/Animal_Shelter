@@ -75,37 +75,19 @@ public class DatabaseManager {
         }
     }
 
-    /**
-     * @param name
-     * @param species
-     * @param breed
-     * @param checkInDate
-     * @param groomDate
-     * @param vetCheckDate
-     */
-    void updateAnimalInDB(String name, String species, String breed, Timestamp checkInDate,
-                          Timestamp groomDate, Timestamp vetCheckDate) {
-        animalInformationStr = new String[]{breed, species};
 
-        animalInformationDate = new Timestamp[]{checkInDate, groomDate, vetCheckDate};
+    void updateAnimalInDB(String name, Timestamp groomDate,
+                          Timestamp vetDate, String collarID) {
 
         try {
             //Execute a query
             animalQuery =
-                    "UPDATE ANIMAL SET SUBSPECIES = ?, BREED = ?,"
-                            + " CHECKINDATE=?, GROOMDATE = ?, VETCHECKDATE = ? where NAME = ?";
+                    "UPDATE ANIMAL SET NAME = ?, LASTGROOMED = ?, LASTCHECKUP = ? where COLLARID = ?";
             preparedStatement = conn.prepareStatement(animalQuery);
-            for (String s : animalInformationStr) {
-                preparedStatement.setString(index, s);
-                index++;
-            }
-
-            for (Timestamp ts : animalInformationDate) {
-                preparedStatement.setTimestamp(index, ts);
-                index++;
-            }
-
-            preparedStatement.setString(7, name);
+           preparedStatement.setString(1,name);
+            preparedStatement.setTimestamp(2, groomDate);
+            preparedStatement.setTimestamp(3,vetDate);
+            preparedStatement.setString(4, collarID);
 
             preparedStatement.executeUpdate();
         } catch (SQLException ex) {
@@ -115,7 +97,7 @@ public class DatabaseManager {
     }
 
     public void scheduleVisit(String lastVetVisit, String lastGroomerVisit, Timestamp nextVetVisit, Timestamp nextGroomerVisit) {
-        String[] lastDates= new String[]{lastVetVisit, lastGroomerVisit};
+        String[] lastDates = new String[]{lastVetVisit, lastGroomerVisit};
 
         Timestamp[] newAppointments = new Timestamp[]{nextVetVisit, nextGroomerVisit};
 
@@ -180,17 +162,17 @@ public class DatabaseManager {
         }
         return animalsInDB;
     }
+
     public void addAnimal(String[] animalInfo) throws SQLException {
         try {
             initializeDb();
             animalQuery = "INSERT INTO ANIMALS(NAME,SPECIES,BREED) VALUES(?,?,?)";
             preparedStatement = conn.prepareStatement(animalQuery);
-            preparedStatement.setString(1,animalInfo[0]);
-            preparedStatement.setString(2,animalInfo[1]);
-            preparedStatement.setString(3,animalInfo[2]);
+            preparedStatement.setString(1, animalInfo[0]);
+            preparedStatement.setString(2, animalInfo[1]);
+            preparedStatement.setString(3, animalInfo[2]);
             preparedStatement.executeUpdate();
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }

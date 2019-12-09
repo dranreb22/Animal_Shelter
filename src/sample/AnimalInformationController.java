@@ -27,11 +27,7 @@ public class AnimalInformationController {
     @FXML
     private TextField textField_Name;
     @FXML
-    private TextField textField_Species;
-    @FXML
-    private TextField textField_Breed;
-    @FXML
-    private DatePicker datePicker_CheckedIn;
+    private TextField textField_collarID;
     @FXML
     private DatePicker datePicker_Groomers;
     @FXML
@@ -41,11 +37,7 @@ public class AnimalInformationController {
     @FXML
     public void handleUpdateBtn(ActionEvent actionEvent) {
         String name = textField_Name.getText();
-        String species = textField_Species.getText();
-        String breed = textField_Breed.getText();
-
-        date = convertToDatePicker(datePicker_CheckedIn);
-        checkInDate = new Timestamp(date.getTime());
+        String collarID = textField_collarID.getText();
 
         date = convertToDatePicker(datePicker_Groomers);
         groomDate = new Timestamp(date.getTime());
@@ -53,12 +45,9 @@ public class AnimalInformationController {
         date = convertToDatePicker(datePicker_VetVisit);
         vetDate = new Timestamp(date.getTime());
 
-        db.updateAnimalInDB(name, species, breed, checkInDate, groomDate, vetDate);
+        db.updateAnimalInDB(name, groomDate, vetDate, collarID);
 
         textField_Name.clear();
-        textField_Breed.clear();
-        textField_Species.clear();
-        datePicker_CheckedIn.getEditor().clear();
         datePicker_Groomers.getEditor().clear();
         datePicker_VetVisit.getEditor().clear();
     }
