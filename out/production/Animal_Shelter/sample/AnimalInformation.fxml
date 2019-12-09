@@ -37,23 +37,17 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
       <children>
         <Label text="Name" />
-        <Label text="Species" GridPane.rowIndex="1" />
-        <Label text="Breed" GridPane.rowIndex="2" />
-        <Label text="Checked in" GridPane.rowIndex="3" />
-        <Label text="Last Groomed" GridPane.rowIndex="4" />
-        <Label text="Last Vet Visit" GridPane.rowIndex="5" />
+        <Label text="Last Groomed" GridPane.rowIndex="1" />
+        <Label text="Last Vet Visit" GridPane.rowIndex="2" />
         <TextField fx:id="textField_Name" GridPane.columnIndex="1" />
-        <DatePicker fx:id="datePicker_CheckedIn" prefHeight="27.0" prefWidth="252.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-        <DatePicker fx:id="datePicker_Groomers" prefHeight="27.0" prefWidth="245.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-        <DatePicker fx:id="datePicker_VetVisit" prefHeight="27.0" prefWidth="255.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="textField_Breed" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="textField_Species" layoutX="252.0" layoutY="18.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <DatePicker fx:id="datePicker_Groomers" prefHeight="27.0" prefWidth="245.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <DatePicker fx:id="datePicker_VetVisit" prefHeight="27.0" prefWidth="255.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label layoutX="10.0" layoutY="151.0" text="CollarID" GridPane.rowIndex="3" />
+            <TextField fx:id="textField_CollarID" layoutX="252.0" layoutY="28.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       </children>
     </GridPane>
     <Button fx:id="button_UpdateAnimalInfo" layoutX="479.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleUpdateBtn" text="Update" />
