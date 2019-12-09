@@ -2,18 +2,25 @@ package sample;
 
 import java.io.IOException;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class AnimalSearchController {
-
+    private DatabaseManager db = new DatabaseManager();
+    private ObservableList<Animal> animalList;
     @FXML
     private AnchorPane rootPane;
     @FXML
     private TextField textField_AnimalName;
+    @FXML
+    private TableView<Animal> tbv_SearchAnimal;
+
 
     @FXML
     public void handleAdoptableDogsMenuItem(ActionEvent actionEvent) throws IOException {
@@ -61,5 +68,12 @@ public class AnimalSearchController {
     public String getSearchQuery(){
         return(textField_AnimalName.getText());
     }
+    @FXML
+        public void getSearchResults(){
+        db.initializeDb();
+        animalList = FXCollections.observableArrayList(db.getAnimalSearch(getSearchQuery()));
+        tbv_SearchAnimal.setItems(animalList);
+    }
+
 
 }
