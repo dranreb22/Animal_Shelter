@@ -21,14 +21,14 @@
       <Font size="18.0"/>
     </font>
     <items>
-    <MenuItem mnemonicParsing="false" onAction="#handleHomeMenuItem" text="Home"/>
-    <MenuItem mnemonicParsing="false" onAction="#handleAddAnimalMenuItem" text="Add Animal"/>
-    <MenuItem mnemonicParsing="false" onAction="#handleAnimalSearchMenuItem"
-      text="Search Animal"/>
-    <MenuItem mnemonicParsing="false" onAction="#handleAnimalInfoMenuItem"
-      text="Edit Animal Info"/>
-    <MenuItem mnemonicParsing="false" text="Adoptable"/>
-    <MenuItem mnemonicParsing="false" onAction="#handleAnimalCareMenuItem" text="Animal Care"/>
+      <MenuItem mnemonicParsing="false" onAction="#handleHomeMenuItem" text="Home"/>
+      <MenuItem mnemonicParsing="false" onAction="#handleAnimalSearchMenuItem"
+        text="Search Animal"/>
+      <MenuItem mnemonicParsing="false" onAction="#handleAddAnimalMenuItem" text="Add Animal"/>
+      <MenuItem mnemonicParsing="false" onAction="#handleAnimalInfoMenuItem"
+        text="Edit Animal Info"/>
+      <MenuItem mnemonicParsing="false" text="Adoptable"/>
+      <MenuItem mnemonicParsing="false" onAction="#handleAnimalCareMenuItem" text="Animal Care"/>
     </items>
   </MenuButton>
   <AnchorPane layoutX="-15.0" layoutY="39.0" minHeight="0.0" minWidth="0.0" prefHeight="367.0"
