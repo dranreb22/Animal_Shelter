@@ -27,7 +27,7 @@ public class AnimalInformationController {
     @FXML
     private TextField textField_Name;
     @FXML
-    private TextField textField_collarID;
+    private TextField textField_CollarID;
     @FXML
     private DatePicker datePicker_Groomers;
     @FXML
@@ -37,7 +37,7 @@ public class AnimalInformationController {
     @FXML
     public void handleUpdateBtn(ActionEvent actionEvent) {
         String name = textField_Name.getText();
-        String collarID = textField_collarID.getText();
+        String collarID = textField_CollarID.getText();
 
         date = convertToDatePicker(datePicker_Groomers);
         groomDate = new Timestamp(date.getTime());
