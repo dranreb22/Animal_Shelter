@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0"
-  xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+  xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1"
   fx:controller="sample.AddAnimalController">
   <MenuButton alignment="CENTER" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0"
     mnemonicParsing="false" text="New Animals" AnchorPane.bottomAnchor="365.0"
